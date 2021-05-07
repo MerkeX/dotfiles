@@ -1,0 +1,12 @@
+[Desktop Entry]
+Categories=Office;Publishing;Qt;X-SuSE-Core-Office;X-Mandriva-Office-Publishing;X-Misc;
+Exec=texmaker %F
+GenericName=LaTeX Editor
+Comment=LaTeX development environment
+Icon=texmaker
+MimeType=text/x-tex;
+Name=Texmaker
+StartupNotify=false
+Terminal=false
+Type=Application
+X-XFCE-Source=file:///usr/share/applications/texmaker.desktop

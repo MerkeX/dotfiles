@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Root Terminal
+Name[it]=Terminale root
+Comment=Opens a terminal as the root user, using gksu to ask for the password
+Comment[it]=Apre un terminale come root, usando gksu per la richiesta della password
+Exec=gksu /usr/bin/x-terminal-emulator
+Icon=gksu-root-terminal
+StartupNotify=true
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=GTK;System;TerminalEmulator;
+X-XFCE-Source=file:///usr/share/applications/gksu.desktop

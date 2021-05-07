@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Root terminal
+Comment=A small descriptive blurb about this application.
+Icon=gksu-root-terminal
+Exec=gksu /usr/bin/xfce4-terminal
+Actions=
+Categories=System;
+X-XFCE-Source=file:///home/devid/.local/share/applications/menulibre-root-terminal.desktop

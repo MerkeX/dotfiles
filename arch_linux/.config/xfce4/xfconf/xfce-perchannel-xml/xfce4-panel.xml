@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <value type="int" value="2"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="16"/>
+      <property name="size" type="uint" value="26"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+        <value type="int" value="2"/>
+        <value type="int" value="3"/>
+        <value type="int" value="4"/>
+        <value type="int" value="5"/>
+        <value type="int" value="52"/>
+        <value type="int" value="8"/>
+        <value type="int" value="9"/>
+        <value type="int" value="10"/>
+        <value type="int" value="11"/>
+        <value type="int" value="12"/>
+        <value type="int" value="13"/>
+        <value type="int" value="14"/>
+      </property>
+      <property name="disable-struts" type="bool" value="false"/>
+      <property name="background-style" type="uint" value="0"/>
+      <property name="background-rgba" type="array">
+        <value type="double" value="0.729412"/>
+        <value type="double" value="0.741176"/>
+        <value type="double" value="0.713725"/>
+        <value type="double" value="1.000000"/>
+      </property>
+    </property>
+    <property name="panel-2" type="empty">
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="position" type="string" value="p=10;x=683;y=748"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="size" type="uint" value="38"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="15"/>
+        <value type="int" value="16"/>
+        <value type="int" value="17"/>
+        <value type="int" value="18"/>
+        <value type="int" value="21"/>
+        <value type="int" value="7"/>
+        <value type="int" value="19"/>
+        <value type="int" value="20"/>
+        <value type="int" value="27"/>
+        <value type="int" value="22"/>
+        <value type="int" value="23"/>
+        <value type="int" value="30"/>
+        <value type="int" value="32"/>
+        <value type="int" value="25"/>
+        <value type="int" value="24"/>
+        <value type="int" value="34"/>
+        <value type="int" value="31"/>
+        <value type="int" value="50"/>
+        <value type="int" value="51"/>
+        <value type="int" value="47"/>
+        <value type="int" value="26"/>
+        <value type="int" value="46"/>
+        <value type="int" value="28"/>
+        <value type="int" value="44"/>
+        <value type="int" value="35"/>
+        <value type="int" value="38"/>
+        <value type="int" value="29"/>
+        <value type="int" value="36"/>
+        <value type="int" value="45"/>
+        <value type="int" value="40"/>
+        <value type="int" value="42"/>
+        <value type="int" value="33"/>
+        <value type="int" value="39"/>
+        <value type="int" value="37"/>
+        <value type="int" value="49"/>
+        <value type="int" value="41"/>
+        <value type="int" value="43"/>
+        <value type="int" value="48"/>
+      </property>
+      <property name="background-style" type="uint" value="1"/>
+      <property name="background-rgba" type="array">
+        <value type="double" value="0.750000"/>
+        <value type="double" value="0.250000"/>
+        <value type="double" value="0.250000"/>
+        <value type="double" value="0.000000"/>
+      </property>
+      <property name="enter-opacity" type="uint" value="100"/>
+      <property name="leave-opacity" type="uint" value="100"/>
+      <property name="disable-struts" type="bool" value="false"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-1" type="string" value="applicationsmenu">
+      <property name="button-icon" type="string" value="distributor-logo-archlinux"/>
+    </property>
+    <property name="plugin-2" type="string" value="tasklist">
+      <property name="grouping" type="uint" value="0"/>
+    </property>
+    <property name="plugin-3" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-4" type="string" value="pager"/>
+    <property name="plugin-5" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-8" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="show-notifications" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chrome.instance100330;chrome.instance10313;chrome.instance10368;chrome.instance104022;chrome.instance1050;chrome.instance105288;chrome.instance10813;chrome.instance10829;chrome.instance1094;chrome.instance1095;chrome.instance11052;chrome.instance1108;chrome.instance1109;chrome.instance1111;chrome.instance1119;chrome.instance1123;chrome.instance1139;chrome.instance1145;chrome.instance116175;chrome.instance11777;chrome.instance118304;chrome.instance11850;chrome.instance11958;chrome.instance1203;chrome.instance1213;chrome.instance12210;chrome.instance1242;chrome.instance1252;chrome.instance12615;chrome.instance1266;chrome.instance12695;chrome.instance1306;chrome.instance13084;chrome.instance13126;chrome.instance13261;chrome.instance1356;chrome.instance135810;chrome.instance13632;chrome.instance1372;chrome.instance137423;chrome.instance1392;chrome.instance1397;chrome.instance1403;chrome.instance14214;chrome.instance1424;chrome.instance142743;chrome.instance1499;chrome.instance15130;chrome.instance1535;chrome.instance1560;chrome.instance1564;chrome.instance1568;chrome.instance1583;chrome.instance158508;chrome.instance1592;chrome.instance1593;chrome.instance16068;chrome.instance16184;chrome.instance16408;chrome.instance1681;chrome.instance174392;chrome.instance17615;chrome.instance1774;chrome.instance18073;chrome.instance18449;chrome.instance19321;chrome.instance1956;chrome.instance1960;chrome.instance20375;chrome.instance20468;chrome.instance20547;chrome.instance21129;chrome.instance2158;chrome.instance21627;chrome.instance2217;chrome.instance23221;chrome.instance23565;chrome.instance2383;chrome.instance2387;chrome.instance2406;chrome.instance2425;chrome.instance2473;chrome.instance24873;chrome.instance25433;chrome.instance25759;chrome.instance2580;chrome.instance25848;chrome.instance25999;chrome.instance2602;chrome.instance26937;chrome.instance26977;chrome.instance2809;chrome.instance2824;chrome.instance2882;chrome.instance2929;chrome.instance2975;chrome.instance30227;chrome.instance30657;chrome.instance312267;chrome.instance3145;chrome.instance31742;chrome.instance3193;chrome.instance3201;chrome.instance3316;chrome.instance3338;chrome.instance33749;chrome.instance3392;chrome.instance34560;chrome.instance35082;chrome.instance35246;chrome.instance36282;chrome.instance36994;chrome.instance37795;chrome.instance3805;chrome.instance38597;chrome.instance4030;chrome.instance4143;chrome.instance42220;chrome.instance46587;chrome.instance47960;chrome.instance4801;chrome.instance48074;chrome.instance5000;chrome.instance50009;chrome.instance50613;chrome.instance5105;chrome.instance5233;chrome.instance5278;chrome.instance5558;chrome.instance5571;chrome.instance56273;chrome.instance5707;chrome.instance5744;chrome.instance58810;chrome.instance60226;chrome.instance60324;chrome.instance63008;chrome.instance6312;chrome.instance64391;chrome.instance64789;chrome.instance67252;chrome.instance68893;chrome.instance7136;chrome.instance7193;chrome.instance7287;chrome.instance7316;chrome.instance73695;chrome.instance77089;chrome.instance7759;chrome.instance7844;chrome.instance813;chrome.instance81507;chrome.instance841;chrome.instance846;chrome.instance848;chrome.instance853;chrome.instance858;chrome.instance861;chrome.instance8620;chrome.instance864;chrome.instance865;chrome.instance876;chrome.instance888;chrome.instance899;chrome.instance901;chrome.instance904;chrome.instance9104;chrome.instance914;chrome.instance915;chrome.instance9186;chrome.instance919;chrome.instance922;chrome.instance923;chrome.instance930;chrome.instance935;chrome.instance939;chrome.instance948;chrome.instance9515;chrome.instance9573;chrome.instance958;chrome.instance9627;chrome.instance96313;chrome.instance9887;chrome.instance992;chrome.instance999;chromium.instance19597;chromium.instance19851;chromium.instance2686;chromium.instance39137;chromium.instance42942;chromium.instance77222;cmus;firefox.instance2613;rhythmbox;spotify;vlc"/>
+    </property>
+    <property name="plugin-9" type="string" value="power-manager-plugin"/>
+    <property name="plugin-10" type="string" value="notification-plugin"/>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="mode" type="uint" value="4"/>
+      <property name="show-seconds" type="bool" value="true"/>
+      <property name="timezone" type="string" value="Europe/Rome"/>
+    </property>
+    <property name="plugin-13" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-14" type="string" value="actions"/>
+    <property name="plugin-15" type="string" value="showdesktop"/>
+    <property name="plugin-16" type="string" value="separator"/>
+    <property name="plugin-17" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15852336934.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-18" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15695169142.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-21" type="string" value="separator"/>
+    <property name="plugin-7" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15695221481.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-19" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15695221542.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-20" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="156952277417.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-22" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="156952404719.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-23" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15695223003.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-24" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15936181091.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-25" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="156952264115.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-26" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="156952251611.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-27" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="156952288618.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-29" type="string" value="separator"/>
+    <property name="plugin-30" type="string" value="separator"/>
+    <property name="plugin-31" type="string" value="separator"/>
+    <property name="plugin-32" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15695224145.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-33" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="156952252912.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-34" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="156952265416.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-35" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15840544691.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-36" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15695224316.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-37" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15695224687.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-38" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15695224848.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-39" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16052633941.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-40" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15695223994.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-41" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15891103531.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-42" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="156952253513.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-43" type="string" value="separator"/>
+    <property name="plugin-44" type="string" value="separator"/>
+    <property name="plugin-45" type="string" value="separator"/>
+    <property name="plugin-46" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15724670761.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-48" type="string" value="battery"/>
+    <property name="plugin-28" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15720038501.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-50" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15913772501.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-47" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15991543641.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-49" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16083156171.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-51" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16101007571.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-52" type="string" value="systray">
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="system-config-printer"/>
+        <value type="string" value="thunar"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="networkmanager applet"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="qBittorrent"/>
+        <value type="string" value="chrome_status_icon_1"/>
+        <value type="string" value="rclone-browser"/>
+        <value type="string" value="Skype1"/>
+        <value type="string" value="TelegramDesktop"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="Mailspring1"/>
+      </property>
+    </property>
+  </property>
+</channel>

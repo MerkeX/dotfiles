@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Mailspring
+GenericName=Mail Client
+Comment=The best email app for people and teams at work
+Icon=GMail-mail.google.com
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/mailspring_mailspring.desktop /snap/bin/mailspring %U
+Actions=
+MimeType=x-scheme-handler/mailto;x-scheme-handler/mailspring;
+Categories=Email;GNOME;GTK;Network;
+Keywords=email;internet;
+StartupNotify=true
+StartupWMClass=Mailspring
+X-XFCE-Source=file:///home/devid/.local/share/applications/snapd/mailspring_mailspring.desktop
