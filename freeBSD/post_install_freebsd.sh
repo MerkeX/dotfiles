@@ -52,7 +52,7 @@ cd Yosemite-gtk-theme/ && sudo ./Install  -d /usr/local/share/themes && cd .. &&
 # macOS Dark
 git clone https://github.com/MerkeX/macOS-Dark.git && sudo cp -r macOS-Dark/ /usr/local/share/themes
 
-#WhiteSur theme
+# WhiteSur theme
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 cd WhiteSur-gtk-theme && sudo ./install.sh -d /usr/local/share/themes && cd .. && rm -rf WhiteSur-gtk-theme/
 
@@ -68,37 +68,37 @@ echo ">> Installing icon packs..." && sleep 2
 
 # Breeze-Splendent icons
 git clone https://github.com/MerkeX/Breeze-Splendent-Icons.git
-cd Breeze-Splendent-Icons && rm README.md LICENSE && sudo cp -r * /usr/share/icons && cd .. && rm -rf Breeze-Splendent-Icons/
+cd Breeze-Splendent-Icons && rm README.md LICENSE && sudo cp -r * /usr/local/share/icons && cd .. && rm -rf Breeze-Splendent-Icons/
 
 # Breeze-Honeyicons
 git clone https://github.com/MerkeX/Breeze-Honey-Icons.git
-cd Breeze-Honey-Icons && rm README.md LICENSE && sudo cp -r * /usr/share/icons && cd .. && rm -rf Breeze-Honey-Icons/
+cd Breeze-Honey-Icons && rm README.md LICENSE && sudo cp -r * /usr/local/share/icons && cd .. && rm -rf Breeze-Honey-Icons/
 
 # Breeze-Noir-Themes (Black-blue & White-Blue) icons
 git clone https://github.com/MerkeX/Breeze-Noir-Icons.git
-cd Breeze-Noir-Icons && rm README.md LICENSE && sudo cp -r * /usr/share/icons && cd .. && rm -rf Breeze-Noir-Icons/
+cd Breeze-Noir-Icons && rm README.md LICENSE && sudo cp -r * /usr/local/share/icons && cd .. && rm -rf Breeze-Noir-Icons/
 
 # Mojave-CT icon
-git clone https://github.com/MerkeX/Mojave-CT.git && sudo cp -r Mojave-CT /usr/share/icons
+git clone https://github.com/MerkeX/Mojave-CT.git && sudo cp -r Mojave-CT /usr/local/share/icons
 
 # McMojave Circle
 git clone https://github.com/MerkeX/McMojave-circle.git
-cd McMojave-circle && sudo ./install.sh --all -d /usr/share/icons && cd .. && rm -rf McMojave-circle
+cd McMojave-circle && sudo ./install.sh --all -d /usr/local/share/icons && cd .. && rm -rf McMojave-circle
 
 # MacOs-icons theme (Cinnamon Edition)
 git clone https://github.com/MerkeX/McOS-Mint-Cinnamon-Edition.git &&
-cd McOS-Mint-Cinnamon-Edition && rm README.md && sudo cp -r * /usr/share/icons && cd .. && rm -rf McOS-Mint-Cinnamon-Edition/
+cd McOS-Mint-Cinnamon-Edition && rm README.md && sudo cp -r * /usr/local/share/icons && cd .. && rm -rf McOS-Mint-Cinnamon-Edition/
 
 # OS Catalina icons
-git clone https://github.com/MerkeX/Os-Catalina-icons.git && sudo cp -r Os-Catalina-icons /usr/share/icons/Os_Catalina
+git clone https://github.com/MerkeX/Os-Catalina-icons.git && sudo cp -r Os-Catalina-icons /usr/local/share/icons/Os_Catalina
 
 # Tela icon
 git clone https://github.com/MerkeX/Tela-icon-theme.git
-cd Tela-icon-theme && sudo ./install.sh -a && cd .. && rm -rf Tela-icon-theme
+cd Tela-icon-theme && sudo ./install.sh -a -d /usr/local/share/icons && cd .. && rm -rf Tela-icon-theme
 
 # Korla (and his variants) theme
 git clone https://github.com/MerkeX/korla.git
-cd korla && rm *.png *.jpg LICENSE *.md && sudo cp -r * /usr/share/icons/ && cd .. && rm -rf korla/
+cd korla && rm *.png *.jpg LICENSE *.md && sudo cp -r * /usr/local/share/icons/ && cd .. && rm -rf korla/
 
 # Pinbadge theme
 git clone https://github.com/MerkeX/pinbadge-icon-theme
@@ -108,8 +108,8 @@ cd pinbadge-icon-theme && sudo make install && cd .. && rm -rf pinbadge-icon-the
 git clone https://github.com/MerkeX/paper-icon-theme.git
 cd paper-icon-theme && meson "build" --prefix=/usr && sudo ninja -C "build" install && cd .. && rm -rf paper-icon-theme/
 
-#WhiteSur theme
+# WhiteSur theme
 git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
-cd WhiteSur-icon-theme && sudo ./install.sh && cd .. && rm -rf WhiteSur-icon-theme/
+cd WhiteSur-icon-theme && sudo ./install.sh -d /usr/local/share/icons && cd .. && rm -rf WhiteSur-icon-theme/
 
 cd ~ && rm -rf temp/
