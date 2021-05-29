@@ -6,7 +6,8 @@ pkg install gedit xfce-4.16 git chromium mousepad firefox gimp ghex plank feh li
  nano neofetch cmatrix avidemux-qt5 gsmartcontrol p7zip nikto nmap aircrack-ng playerctl unrar unzip\
  rclone gsed gtar sudo vim vlc vice py37-menulibre wine wine-mono wine-gecko winetricks cmus curl opencl-clang\
  xorg xf86-video-ati pavucontrol pavumeter audacious rpm4 emulators/linux_base-c7 fusefs-ntfs electron11\
- lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings drm-kmod galculator xed blender inkscape\
+ lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings drm-kmod numix-gtk-theme numix-icon-theme\ 
+ numix-icon-theme-circle galculator xed blender inkscape\
  cheese kodi hexchat telegram-desktop texstudio
 
 echo "Enabling lightdm..."
@@ -44,14 +45,12 @@ mkdir ~/temp && cd ~/temp
 git clone https://github.com/MerkeX/Mojave-gtk-theme.git
 cd Mojave-gtk-theme && sudo ./install.sh -d /usr/local/share/themes && cd .. && rm -rf Mojave-gtk-theme
 
-
 # Yosemite GTK
 git clone https://github.com/MerkeX/Yosemite-gtk-theme.git
 cd Yosemite-gtk-theme/ && sudo ./Install  -d /usr/local/share/themes && cd .. && rm -rf Yosemite-gtk-theme/
 
 # macOS Dark
 git clone https://github.com/MerkeX/macOS-Dark.git && sudo cp -r macOS-Dark/ /usr/local/share/themes
-
 
 #WhiteSur theme
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
@@ -66,11 +65,6 @@ cd OBTheme-Collections && rm *.md && sudo cp -r * /usr/local/share/themes && cd 
 
 # INSTALLING ICON THEMES
 echo ">> Installing icon packs..." && sleep 2
-# Numix icon theme
-cd ~/temp
-git clone https://github.com/MerkeX/numix-icon-theme.git
-cd numix-icon-theme/
-rm license readme.md && sudo cp -r * Numix Numix-Light /usr/share/icons && cd .. && rm -rf numix-icon-theme/
 
 # Breeze-Splendent icons
 git clone https://github.com/MerkeX/Breeze-Splendent-Icons.git
@@ -101,11 +95,6 @@ git clone https://github.com/MerkeX/Os-Catalina-icons.git && sudo cp -r Os-Catal
 # Tela icon
 git clone https://github.com/MerkeX/Tela-icon-theme.git
 cd Tela-icon-theme && sudo ./install.sh -a && cd .. && rm -rf Tela-icon-theme
-
-# Numix circle theme
-git clone https://github.com/MerkeX/numix-icon-theme-circle.git
-cd numix-icon-theme-circle/
-rm LICENSE README.md && sudo cp -r * /usr/share/icons && cd .. && rm -rf numix-icon-theme-circle/
 
 # Korla (and his variants) theme
 git clone https://github.com/MerkeX/korla.git
