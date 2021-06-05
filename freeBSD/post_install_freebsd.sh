@@ -1,13 +1,13 @@
 pkg update &&
-pkg install gedit xfce-4.16 git chromium mousepad firefox gimp ghex plank feh libreoffice evince ristretto\
- gcc gdb cmake node npm libgnome-keyring ffmpeg emacs conky audacity qbittorrent vscode xfce4-goodies\
- bash radeontop radeontool dosbox autoconf automake brasero bzip2 fakeroot gawk links wget\
- gnugrep inxi gvfs gzip htop slim slim-themes lxappearance openbox picom obconf obconf-qt  tint2 mixxx e2fsprogs-libblkid\
- nano neofetch cmatrix avidemux-qt5 gsmartcontrol p7zip nikto nmap aircrack-ng playerctl unrar unzip\
- rclone gsed gtar sudo vim vlc vice py37-menulibre wine wine-mono wine-gecko winetricks cmus curl opencl-clang\
- xorg xf86-video-ati pavucontrol pavumeter audacious rpm4 emulators/linux_base-c7 fusefs-ntfs electron11\
- lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings drm-kmod numix-gtk-theme numix-icon-theme\ 
- numix-icon-theme-circle galculator xed blender inkscape\
+pkg install gedit xfce-4.16 git chromium mousepad firefox gimp ghex plank feh libreoffice evince ristretto \
+ gcc gdb cmake node npm libgnome-keyring ffmpeg emacs conky audacity qbittorrent vscode xfce4-goodies \
+ bash radeontop radeontool dosbox autoconf automake brasero bzip2 fakeroot gawk links wget \
+ gnugrep inxi gvfs gzip htop slim slim-themes lxappearance openbox picom obconf obconf-qt  tint2 mixxx e2fsprogs-libblkid \
+ nano neofetch cmatrix avidemux-qt5 gsmartcontrol p7zip nikto nmap aircrack-ng playerctl unrar unzip \
+ rclone gsed gtar sudo vim vlc vice py37-menulibre wine wine-mono wine-gecko winetricks cmus curl opencl-clang \
+ xorg xf86-video-ati pavucontrol pavumeter audacious rpm4 emulators/linux_base-c7 fusefs-ntfs electron11 \
+ lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings drm-kmod numix-gtk-theme numix-icon-theme \
+ numix-icon-theme-circle galculator xed blender inkscape \
  cheese kodi hexchat telegram-desktop texstudio
 
 echo "Enabling lightdm..."
@@ -18,6 +18,8 @@ sudo echo 'linux_enable="YES"' >> /etc/rc.conf
 sudo echo 'kld_list="fusefs"' >> /etc/rc.conf
 sudo echo '#kld_list="/boot/modules/radeonkms.ko"' >> /etc/rc.conf
 sudo echo 'kld_list="radeonkms"' >> /etc/rc.conf
+sudo echo 'kld_list="amdgpu"' >> /etc/rc.conf
+sudo echo 'kld_list="i915"' >> /etc/rc.conf
 
 sudo echo "add path 'dri/*' mode 0666 group video" >> /etc/devfs.conf
 sudo echo "add path 'drm/*' mode 0666 group video" >> /etc/devfs.conf
