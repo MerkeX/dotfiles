@@ -3,7 +3,7 @@ echo '>> Executing postInstall script for "Linux Mint 20"...' && sleep 2 &&
 echo '>> Adding i386 architecture and updating repositories...' && sleep 2 &&
 sudo dpkg --add-architecture i386 && apt-get update &&
 echo '>> Install core software...' && sleep 2 &&
-sudo apt-get install linux-headers-$(uname -r) build-essential snapd apt-transport-https gdb execstack debhelper dkms gdebi\
+sudo apt-get install linux-headers-$(uname -r) build-essential snapd apt-transport-https gdb execstack debhelper dkms gdebi \
 sudo software-properties-common gcc git libxss1 libappindicator1 libindicator7 qmlscene qt5-qmake qt5-default qtdeclarative5-dev -y &&
 echo '>> Adding custom repositories...' && sleep 2 &&
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - &&
@@ -15,17 +15,17 @@ sudo apt-get remove --purge pix xplayer thunderbird transmission-gtk bluetooth b
 echo ">> Re-updating repos and upgrading..." && sleep 2 &&
 sudo apt-get update && apt-get upgrade -y &&
 echo '>> Install essential softwares...' && sleep 2 &&
-sudo apt-get install compton compton-conf chromium openbox tint2 dosfstools xarchiver playerctl cmus gmtp xfce4\
+sudo apt-get install compton compton-conf chromium openbox tint2 dosfstools xarchiver playerctl cmus gmtp xfce4 \
  xfce4-goodies unrar unzip dhcpcd5 gedit ttf-mscorefonts-installer -y &&
 echo '>> Install other softwares...' && sleep 2 &&
-sudo apt-get install idle idle3 vlc feh grub-customizer filezilla stellarium ffmpeg hexchat conky skypeforlinux neofetch\
-qbittorrent texlive-fonts-extra texlive-latex-extra audacious libreoffice steam spotify-client deepin-terminal ntp\
-tk texmaker gimp gparted google-chrome-stable cups android-tools-adb hplip inkscape evince gsmartcontrol kpat hwinfo\
-telegram-desktop breeze-icon-theme playonlinux emacs ghex audacity links terminator cmatrix dosbox wmmatrix libgconf-2-4\
-numix-icon-theme-circle xscreensaver-data-extra lxtask synaptic xscreensaver-gl xscreensaver-gl-extra\
+sudo apt-get install idle idle3 vlc feh grub-customizer filezilla stellarium ffmpeg hexchat conky skypeforlinux neofetch \
+qbittorrent texlive-fonts-extra texlive-latex-extra audacious libreoffice steam spotify-client deepin-terminal ntp \
+tk texmaker gimp gparted google-chrome-stable cups android-tools-adb hplip inkscape evince gsmartcontrol kpat hwinfo \
+telegram-desktop breeze-icon-theme playonlinux emacs ghex audacity links terminator cmatrix dosbox wmmatrix libgconf-2-4 \
+numix-icon-theme-circle xscreensaver-data-extra lxtask synaptic xscreensaver-gl xscreensaver-gl-extra \
 xscreensaver-screensaver-bsod xscreensaver-screensaver-dizzy pulseaudio pavucontrol pavumeter -y &&
 wget https://release.axocdn.com/linux/gitkraken-amd64.deb && sudo dpkg -i gitkraken-amd64.deb &&
-wget https://atom-installer.github.com/v1.54.0/atom-amd64.deb?s=1610567452&ext=.deb && sudo dpkg -i atom-amd64.deb &&
+wget https://atom-installer.github.com/v1.57.0/atom-amd64.deb?s=1610567452&ext=.deb && sudo dpkg -i atom-amd64.deb &&
 wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.30857_amd64.deb &&
 sudo dpkg -i teams_1.3.00.30857_amd64.deb &&
 wget https://dl.teamviewer.com/download/linux/version_15x/teamviewer_15.14.5_amd64.deb && sudo dpkg -i teamviewer_15.14.5_amd64.deb &&
@@ -35,8 +35,8 @@ sudo apt-get -f install &&
 
 # INSTALLIG ATOM PACKAGES
 echo ">> Installing ATOM packages" && sleep 2 &&
-apm install gitlab-integration gitlab ide-python atom-python-run ide-c-cpp monokai\
-gruvbox gruvbox-dark-ui dracula-ui markdown-preview git-plus &&
+apm install gitlab-integration gitlab ide-python atom-python-run ide-c-cpp monokai \
+gruvbox gruvbox-dark-ui dracula-ui markdown-preview &&
 
 echo ">> Installing fonts..." && sleep 2 &&
 cd ./fonts && sudo cp * /usr/local/share/fonts && cd .. &&
