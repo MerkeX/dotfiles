@@ -88,6 +88,13 @@ ${color3}${swapbar 3}
 ${font Ostrich Sans:pixelsize=15,weight:bold}${color0}HARD DISK ${hr 2}
 ${voffset 5}${font Ostrich Sans:pixelsize=12}${color1}ROOT:${color2}${alignr}${fs_used /} / ${fs_size /} --> ${fs_used_perc /}%
 ${color3}${fs_bar 3 /}
+${voffset 5}${font Ostrich Sans:pixelsize=12}${color1}HOME:${color2}${alignr}${fs_used /home} / ${fs_size /home} --> ${fs_used_perc /home}%
+${color3}${fs_bar 3 /home}
+${voffset 5}${font Ostrich Sans:pixelsize=12}${color1}TMP:${color2}${alignr}${fs_used /tmp} / ${fs_size /tmp} --> ${fs_used_perc /tmp}%
+${color3}${fs_bar 3 /tmp}
+${voffset 5}${font Ostrich Sans:pixelsize=12}${color1}GAMES:${color2}${alignr}${fs_used /media/games} / ${fs_size /media/games} --> ${fs_used_perc /media/games}%
+${color3}${fs_bar 3 /media/games}
+
 
 ${font Ostrich Sans:pixelsize=13,weight:bold}${color0}NETWORK ${hr 2}
 ${voffset 5}${offset 5}${color1}${font Ostrich Sans:pixelsize=12}${color1}UP:${alignr}${color2}${upspeedf enp0s7} KB/s Total : ${totalup}
@@ -98,7 +105,8 @@ ${offset 5}${font Ostrich Sans:pixelsize=12}${color1}Local IP${color2}${alignr}$
 ${offset 5}${font Ostrich Sans:pixelsize=12}${color1}Public IP${color2}${alignr}${execi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
 
 ${font Ostrich Sans:pixelsize=15,weight:bold}${color0}TEMPERATURES ${hr 2}
-${voffset 5}${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color1}CPU:${alignr}${exec sensors | grep 'Tdie' | cut -c14-23}
-${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color1}GPU (amdgpu):${alignr}${exec sensors | grep 'edge' | cut -c14-23}
+${voffset 5}${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color1}CPU:${alignr}${exec sensors acpitz-acpi-0 | grep temp1 | cut -c14-22}
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color1}GPU (radeon):${alignr}${exec sensors radeon-pci-0200 | grep temp1 | cut -c14-22}
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color1}GPU usage:${alignr}${exec radeontop -d- -l1 | grep -o 'gpu [0-9]\{1,3\}' | cut -c 5-7}%
 
 ]]
