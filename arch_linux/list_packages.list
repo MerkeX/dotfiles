@@ -8,7 +8,6 @@ amd-ucode
 anbox-git
 anbox-image
 apulse
-arandr
 arc-gtk-theme
 arch-plymouthize
 archlinux-themes-slim
@@ -34,7 +33,6 @@ bzip2
 calibre
 cava
 cheese
-chromium
 cli-visualizer
 cmatrix
 cmus
@@ -55,11 +53,11 @@ diffutils
 discord
 dmenu
 dosbox
-dotnet-runtime
-dotnet-sdk
+dotnet-host-bin
+dotnet-runtime-bin
+dotnet-sdk-bin
+dotnet-targeting-pack-bin
 droidcam
-dropbox
-dropbox-cli
 e2fsprogs
 easymp3gain-gtk2
 efibootmgr
@@ -78,7 +76,6 @@ fim
 findutils
 firefox
 firefox-i18n-it
-flashplugin
 flex
 florence
 fortune-mod
@@ -99,7 +96,6 @@ git
 gitkraken
 glava
 glibc
-gnome-calculator
 gnome-icon-theme
 gnome-keyring
 google-chrome
@@ -198,6 +194,7 @@ nano
 ncmpcpp
 neofetch
 neovim
+neovim-qt
 net-tools
 netctl
 network-manager-applet
@@ -282,13 +279,10 @@ sed
 shadow
 siji-git
 skypeforlinux-stable-bin
-slim
-slim-themes
 snapd
 snownews
 speedtest-cli
 spotify
-spotify-adblock-linux
 steam
 sudo
 sysfsutils
@@ -300,7 +294,7 @@ teams
 telegram-desktop
 terminator
 texinfo
-texmaker
+texstudio
 thunar
 thunar-archive-plugin
 thunar-dropbox
