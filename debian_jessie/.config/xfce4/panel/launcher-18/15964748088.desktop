@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=Spotify
+GenericName=Music Player
+Icon=/usr/share/icons/McMojave-circle/apps/scalable/spotify-linux-512x512.svg
+TryExec=spotify
+Exec=spotify %U
+Terminal=false
+MimeType=x-scheme-handler/spotify;
+Categories=Audio;Music;Player;AudioVideo;
+StartupWMClass=spotify
+X-XFCE-Source=file:///usr/share/xfce4/applications/spotify.desktop
+Comment=
+Path=
+StartupNotify=false

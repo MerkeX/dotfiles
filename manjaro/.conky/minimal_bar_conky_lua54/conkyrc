@@ -1,0 +1,92 @@
+conky.config = {
+
+--## Conky Theme
+--# Simple Bar Conky Theme V. 0.1 - by mrmaire <maire.nunez@gmail.co>
+--## Minimalist theme for conky
+--##
+--## Created on 31/05/2018
+--## Edited on 23/09/2020
+--##
+
+--## SETTINGS
+
+use_xft = true,
+--font = 'DejaVuSerif:normal:size=8',
+xftalpha = 100,
+update_interval = 1,
+total_run_times = 0,
+
+own_window = true,
+own_window_type = 'override',
+own_window_class = 'normal',
+--own_window_hints 'undecorated,below,sticky,skip_taskbar,skip_pager',
+own_window_transparent = true,
+own_window_argb_visual = true,
+own_window_argb_value = 102,
+own_window_colour = '000000',
+
+double_buffer = yes,
+minimum_width = 200, minimum_height = 0,
+--#maximum_width = 500,
+draw_shades = false,
+draw_outline = false,
+draw_borders = false,
+draw_graph_borders = false,
+
+default_color = 'white',
+default_shade_color = 'red',
+default_outline_color = 'green',
+alignment = 'top_middle',
+gap_x = 0,
+gap_y = -20,
+no_buffers = true,
+uppercase = false,
+cpu_avg_samples = 1,
+net_avg_samples = 2,
+override_utf8_locale = true,
+--use_spacer = false,
+
+
+--## = Defining colors,
+color1 = '17ba9d', --##verde manjaro
+color2 = 'fd971f', --##naranja
+color3 = '0b102e', --##gris # Text
+color4 = '233250', --# Value
+--color4 = '008080', --# teal # Value
+--color4 = '20a5e4', --##azul
+color5 = 'fdcefc', --##verde claro
+color6 = 'D45959', --##rojo
+c
+
+--## Add processes
+--## {color3}Processes: ${color2}${processes} / ${running_processes} ${color5}|
+
+--## free | grep 'Mem:' | cut -c20-35
+--## ${color3}RAM: ${color2}${memperc}% ${color5}|
+
+};
+
+
+--## END SETTINGS;
+
+--## TEXT OUTPUT
+conky.text = [[
+
+${font Courier New:bold:size=9}${color3}\
+System: ${color4}${execi 60 lsb_release -ds | \
+awk '{print $1}'} ${execi 60 lsb_release -ds | \
+awk '{print $2}'} ${execi 60 lsb_release -ds | \
+awk '{print $3}'} ($machine) ${color5} | \
+${color3}Time: ${color4}${time %H:%M:%S} ${color4}| \
+${color3}Uptime: ${color4}$uptime ${color5}| \
+${color3}Kernel: ${color4}$kernel ${color5}| \
+${color3}CPU: ${color4}${cpu}% /${color6}${exec sensors acpitz-acpi-0 | grep temp1 | cut -c14-22} ${color5}| \
+${color3}GPU: ${exec radeontop -d- -l1 | grep -o 'gpu [0-9]\{1,3\}' | cut -c 5-7}% / ${exec sensors | grep edge | cut -c15-22} ${color5}| \
+${color3}RAM: ${color4}${execi 1 free -h | grep Mem: | cut -c28-31}B/$memmax ${color5}| \
+${color3}SWAP: ${color4}${swap} / ${swapmax} ${color5}| \
+${color3}ROOT: ${color4}${fs_used /} / ${fs_size /} ${color5}| \
+${color3}DOWN: ${color4}${downspeedf enp0s7} KB/s ${color5}| \
+${color3}UP: ${color4}${upspeedf enp0s7} KB/s ${color5}| \
+${color3}IP: ${color4}${alignr}${execi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
+
+]];

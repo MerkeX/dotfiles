@@ -1,48 +1,68 @@
 ## Preview
-### ASUS X554LA ARCH LINUX XFCE
+### :: LAPTOP - VOID LINUX
+#### [XFCE]
 [![](img.jpg)](img.jpg)
-[![Arch Xfce](/.preview/archlinux_xfce_mac_os_theme.png?raw=true)](.preview/archlinux_xfce_mac_os_theme.png?raw=true)
+[![Void Linux Xfce](/.preview/void_xfce.png?raw=true)](.preview/void_xfce.png?raw=true)
 <br />
-### ASUS X554LA ARCH LINUX i3-gaps
-[![Arch i3](.preview/archlinux_i3.png?raw=true)](.preview/archlinux_i3.png?raw=true)
+#### [OPENBOX]
+[![](img.jpg)](img.jpg)
+[![Void Linux Openbox](/.preview/void_openbox.png?raw=true)](.preview/void_openbox.png?raw=true)
 <br />
-### ASUS X554LA ARCH LINUX Openbox
-[![Arch Openbox](.preview/archlinux_openbox.png?raw=true)](.preview/archlinux_openbox.png?raw=true)
+#### [i3-GAPS]
+[![](img.jpg)](img.jpg)
+[![Void Linux i3-gaps](/.preview/void_i3.png?raw=true)](.preview/void_i3.png?raw=true)
 <br />
-### MANJARO XFCE
-[![Manjaro Xfce](.preview/manjaro_xfce.png?raw=true)](.preview/manjaro_xfce.png?raw=true)
+
+### :: DESKTOP - DEVUAN CHIMAERA
+#### [XFCE]
+[![](img.jpg)](img.jpg)
+[![Devuan Chimaera Xfce](/.preview/devuan_chimaera_xfce.png?raw=true)](.preview/devuan_chimaera_xfce.png?raw=true)
 <br />
-### MANJARO Openbox
-[![Manjaro Xfce](.preview/manjaro_openbox.png?raw=true)](.preview/manjaro_openbox.png?raw=true)
+#### [OPENBOX]
+[![](img.jpg)](img.jpg)
+[![Devuan Chimaera Openbox](/.preview/devuan_chimaera_openbox.png?raw=true)](.preview/devuan_chimaera_xfce.png?raw=true)
 <br />
-### DEBIAN 8 (JESSIE) XFCE
-[![Debian 8 Xfce](.preview/debian_xfce.png?raw=true)](.preview/debian_xfce.png?raw=true)
+##### [i3-GAPS]
+[![](img.jpg)](img.jpg)
+[![Devuan Chimaera i3-gaps](/.preview/devuan_chimaera_i3.png?raw=true)](.preview/devuan_chimaera_i3.png?raw=true)
 <br />
+
+<br />
+#### OLD PREVIEW
+
+
+|Arch Linux Xfce | Arch Linux Openbox |  Arch Linux i3-gaps |
+|:-:|:-:|:-:|
+![Arch Xfce](/.preview/arch_xfce.png?raw=true)|![Arch Openbox](.preview/arch_openbox.png?raw=true)| ![Arch i3](.preview/arch_i3.png?raw=true)|
+
+| Manjaro Xfce | Manjaro Openbox | Debian 8 (Jessie) Xfce |
+|:-:|:-:|:-:|
+|![Manjaro Xfce](.preview/manjaro_xfce.png?raw=true)|![Manjaro Xfce](.preview/manjaro_openbox.png?raw=true)|![Debian 8 Xfce](.preview/debian_jessie_xfce.png?raw=true)|
+
 ## Details
 
-| **DISTRO**  | Arch linux |  Manjaro | Debian  |
-|----------|:-------------:|------:|------:|
-| **Display Server** |X11|X11|X11|X11|
-| **Display Manager** |LightDM|LightDM|LightDM|LightDM|
-| **Greeter** |Webkit2 Greeter|Webkit2 Greeter|LightGTK+ Greeter|LightGTK+ Greeter|
-| **Desktop Environment** |Xfce/Openbox/i3|Xfce/Openbox|Xfce|Xfce|
-| **Terminal**|Xfce4-terminal|Xfce4-terminal|Xfce4-terminal|Xfce4-terminal|
-| **Compositor** |Picom|Picom|Compton|Compton|
-| **GTK Theme**|Mojave-dark-alt|Yosemite-dark-solid|macOs-dark|macOs-dark|
-| **Icons** |McMojave-circle-grey-dark|Korla/Tela-green-dark|McMojave-circle-green-dark|Mojave-CT|
-| **Cursor** |Breeze|Breeze|Breeze|Breeze|
-| **Web Browser** |Google Chrome/Firefox|Google Chrome/Firefox|Google Chrome/Firefox|Google Chrome/Firefox|
-| **Image Viewer** |Ristretto|Ristretto|Ristretto|Ristretto|
-| **Sound Mixer** |PulseAudio|PulseAudio|PulseAudio|PulseAudio|
-| **CLI Text Editor** |Nano|Nano|Nano|Nano|
-| **GUI Text Editor** |Gedit|Gedit|Gedit|Gedit|
-| **Graphic Editor** |GIMP|GIMP|GIMP|GIMP|
-| **Brightness Manager** |xbacklight|xbacklight|xbacklight|xbacklight|
-| **Music Player** |Rhythmbox|Rhythmbox|Rhythmbox|Rhythmbox|
-| **Office Suite** |LibreOffice|LibreOffice|LibreOffice|LibreOffice|
-|**Wallpaper**| [Xfce](https://wallhaven.cc/w/zm5pxv) [OpenBox](https://wallhaven.cc/w/e7ozyw) [i3](https://wallhaven.cc/w/0j61em) |  [Xfce](https://wallhaven.cc/w/2em38y) [OpenBox](https://www.artstation.com/artwork/PogY81)|  [Xfce](https://wallhaven.cc/w/n67xlq) | [Xfce](https://wallhaven.cc/w/r21gd7)|
-
-
+| **DISTRO**  | Void Linux |  Devuan  |
+|----------|:-------------:|:--:|
+| **Display Server** |X11|X11|
+| **Display Manager** |LightDM|Slim|
+| **Greeter** |Webkit2 Greeter|//|
+| **Desktop Environment** |Xfce / Openbox / i3| Xfce / Openbox / i3|
+| **Shell**|Zsh | Zsh |
+| **Terminal**|Xfce4-terminal / Alacritty / Terminator | Xfce4-terminal / Deepin-terminal / terminator |
+| **Compositor** |Picom|Picom|
+| **GTK Theme**|WhiteSur-dark-solid-green|WhiteSur-dark-solid-purple |
+| **Icons** |McMojave-dark-green|Tela-purple-dark|
+| **Cursor** |Breeze|Breeze|
+| **Web Browser** |Firefox/Google Chrome|Firefox/Google Chrome|
+| **Image Viewer** |Ristretto|Ristretto|
+| **Sound Mixer** |PulseAudio|PulseAudio|
+| **CLI Text Editor** |Nano|Nano|
+| **GUI Text Editor** |Gedit|Mousepad|
+| **Graphic Editor** |GIMP|GIMP|
+| **Brightness Manager** |xbacklight|xbacklight|
+| **Music Player** |Audacious|Audacious|
+| **Office Suite** |LibreOffice|LibreOffice|
+|**Wallpaper**| [Xfce]() [OpenBox]() [i3]() |  [Xfce]() [OpenBox](https://www.behance.net/gallery/77441651/Heavy-Elevator) [i3](https://wallhaven.cc/w/4g3gde)|
 
 ### i3 Environment
 - **Top panel** Conky
@@ -50,5 +70,5 @@
 
 ## Notes
 - If you want to use this configuration, inspect the code before use.
-- My Wifi interface is wlp3s0 & my ethernet interface is enp0s25,<br />
+- My Wifi interface is wlp3s0 & my ethernet interface is enp8s0 (or eth0),<br />
 if you find them in the configuration file, replace with your own. Use `ifconfig -a` to find yours.

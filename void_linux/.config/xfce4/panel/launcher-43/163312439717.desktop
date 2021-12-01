@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Grub Customizer
+Comment=Customize the bootloader (GRUB2 or BURG)
+Exec=grub-customizer
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+StartupNotify=false
+Categories=System;GTK;
+Icon=grub-customizer
+Keywords=GRUB;GRUB2;BURG;configuration;settings;menu;
+X-XFCE-Source=file:///usr/share/applications/grub-customizer.desktop

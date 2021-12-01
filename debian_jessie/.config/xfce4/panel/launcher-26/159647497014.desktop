@@ -1,0 +1,44 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+NoDisplay=false
+Icon=libreoffice-startcenter
+Type=Application
+Categories=Office;X-Red-Hat-Base;X-SuSE-Core-Office;X-MandrivaLinux-Office-Other;
+Exec=libreoffice %U
+MimeType=application/vnd.openofficeorg.extension;
+Name=LibreOffice
+GenericName=Office
+GenericName[it]=Ufficio
+Comment=The office productivity suite compatible to the open and standardized ODF document format. Supported by The Document Foundation.
+Comment[it]=La suite di produttività per l'ufficio compatibile con il formato standard aperto ODF. Supportata da The Document Foundation.
+StartupNotify=true
+X-GIO-NoFuse=true
+StartupWMClass=libreoffice-startcenter
+X-KDE-Protocols=file,http,smb,ftp,webdav
+Actions=Writer;Calc;Impress;Draw;Base;Math;
+X-XFCE-Source=file:///usr/share/applications/libreoffice-startcenter.desktop
+
+[Desktop Action Writer]
+Name=Text Document
+Exec=libreoffice --writer
+
+[Desktop Action Calc]
+Name=Spreadsheet
+Exec=libreoffice --calc
+
+[Desktop Action Impress]
+Name=Presentation
+Exec=libreoffice --impress
+
+[Desktop Action Draw]
+Name=Drawing
+Exec=libreoffice --draw
+
+[Desktop Action Base]
+Name=Database
+Exec=libreoffice --base
+
+[Desktop Action Math]
+Name=Formula
+Exec=libreoffice --math

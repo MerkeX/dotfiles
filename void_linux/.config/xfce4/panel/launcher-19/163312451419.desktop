@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Thunderbird
+GenericName=Mail Client
+Comment=Send and receive mail with Thunderbird
+Exec=thunderbird %u
+Icon=thunderbird
+Terminal=false
+Type=Application
+MimeType=message/rfc822;x-scheme-handler/mailto;
+StartupNotify=true
+Categories=Network;Email;
+X-XFCE-Source=file:///usr/share/applications/thunderbird.desktop

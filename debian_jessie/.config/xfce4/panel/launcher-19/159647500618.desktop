@@ -1,0 +1,26 @@
+[Desktop Entry]
+Name=Rhythmbox
+Name[it]=Rhythmbox
+GenericName=Music Player
+GenericName[it]=Riproduttore musicale
+X-GNOME-FullName=Rhythmbox Music Player
+X-GNOME-FullName[it]=Riproduttore musicale Rhythmbox
+Comment=Play and organize your music collection
+Comment[it]=Riproduce e organizza la collezione musicale
+Keywords=Audio;Song;MP3;CD;Podcast;MTP;iPod;Playlist;Last.fm;UPnP;DLNA;Radio;
+Keywords[it]=Audio;Suono;Musica;Canzone;Canzoni;MP3;CD;Podcast;MTP;iPod;Playlist;last.fm;UPnP;DLNA;Radio;
+Exec=rhythmbox %U
+Terminal=false
+Type=Application
+Icon=rhythmbox
+X-GNOME-DocPath=rhythmbox/rhythmbox.xml
+Categories=GNOME;GTK;AudioVideo;Audio;Player;
+MimeType=application/x-ogg;application/ogg;audio/x-vorbis+ogg;audio/x-scpls;audio/x-mp3;audio/x-mpeg;audio/mpeg;audio/x-mpegurl;audio/x-flac;audio/mp4;x-scheme-handler/itms;x-scheme-handler/itmss;
+StartupNotify=true
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=rhythmbox
+X-GNOME-Bugzilla-Component=general
+X-GNOME-Bugzilla-OtherBinaries=rhythmbox-client;rhythmbox-metadata;
+X-GNOME-Bugzilla-Version=3.1
+X-GNOME-UsesNotifications=true
+X-XFCE-Source=file:///usr/share/applications/rhythmbox.desktop
