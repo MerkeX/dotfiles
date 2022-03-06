@@ -93,8 +93,6 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/p
 https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 rm -f packages.microsoft.gpg
 
-sudo echo 'PATH="/usr/local/bin:/sbin:/usr/sbin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin:"' >> /etc/environment
-sudo source /etc/environment
 
 echo ">> Re-updating repos and upgrading..." && sleep 2
 sudo apt-get update && apt-get upgrade -y
@@ -114,11 +112,6 @@ texlive-fonts-extra texlive-latex-extra texstudio thunderbird tk vlc wmmatrix \
 xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra \
 xscreensaver-screensaver-bsod xscreensaver-screensaver-dizzy -y
 
-wget http://ftp.it.debian.org/debian/pool/main/libi/libindicator/libindicator3-7_0.5.0-4_amd64.deb
-wget http://ftp.it.debian.org/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-7_amd64.deb
-wget https://github.com/eneshecan/whatsapp-for-linux/releases/download/v1.3.1/whatsapp-for-linux_1.3.1_amd64.deb
-wget https://release.axocdn.com/linux/gitkraken-amd64.deb
-wget https://dl.discordapp.net/apps/linux/0.0.16/discord-0.0.16.deb
 sudo dpkg -i *.deb
 sudo apt-get -f install -y
 
@@ -135,7 +128,8 @@ meson .. && ninja && sudo ninja install
 echo ">> Installing flatpak and apps..." && sleep 2
 sudo apt-get install flatpak -y
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-#sudo flatpak install com.discordapp.Discord com.axosoft.GitKraken -y
+sudo flatpak install com.discordapp.Discord com.axosoft.GitKraken com.jetbrains.PyCharm-Community \
+org.telegram.desktop  com.github.eneshecan.WhatsAppForLinux -y
 
 echo ">> Installing fonts..." && sleep 2
 sudo cp fonts/* /usr/local/share/fonts && sudo fc-cache /usr/local/share/fonts

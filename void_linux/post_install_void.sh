@@ -30,14 +30,12 @@ gsmartcontrol hexchat hplip-gui htop idle-python3 inkscape keepassxc kodi libreo
 lutris lxappearance MangoHud  menulibre nano neovim neovim-qt nodejs obconf \
 open-vm-tools playonlinux plymouth pulseaudio pycharm-community qbittorrent qt5-core \
 qt5-devel qt5-tools qt5-tools-devel rclone rofi Signal-Desktop skype steam stellarium \
-telegram-desktop terminator texlive-bin texlive-latexextra texlive-fontsextra \
+stellarium-data telegram-desktop terminator texlive-bin texlive-latexextra texlive-fontsextra \
 texlive-science texlive-publishers texstudio thunderbird tk vala-panel vlc vscode  -y
 
 echo ">> Enabling 'flatpak' repo..." && sleep 2
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo  flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-sudo flatpak install com.discordapp.Discord com.microsoft.Edge com.google.Chrome \
-com.axosoft.Gitkraken com.skype.Client sscom.microsoft.Teams -y
+sudo flatpak install  com.axosoft.Gitkraken t  -y
 
 echo ">> Installing fonts..." && sleep 2
 cd fonts/ && sudo cp * /usr/share/fonts/TTF
