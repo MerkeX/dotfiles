@@ -3,14 +3,14 @@ echo '>> Executing postInstall script for "Debian 11 (Bullseye)"...' && sleep 2
 echo '>> Adding i386 architecture and updating repositories...' && sleep 2
 sudo dpkg --add-architecture i386 && apt-get update
 echo '>> Install core software...' && sleep 2
-sudo apt-get install apt-transport-https asciidoctor bison build-essential cmake \
-curl debhelper dkms dwarves flex g++ gcc gdb gdebi git libargon2-dev libayatana-indicator7 \
-libdbusmenu-gtk4 libelf-dev libgcrypt20-dev libxss1 libqrencode-dev libqt5svg5-dev \
-libqt5x11extras5-dev libquazip5-dev libreadline-dev libsodium-dev libusb-1.0-0-dev \
-libxi-dev libykpers-1-dev libxtst-dev libyubikey-dev linux-headers-$(uname -r) \
-meson python3-pyqt5 qmlscene qt5-qmake qtdeclarative5-dev qtbase5-dev \
-qtbase5-private-dev qttools5-dev qttools5-dev-tools rofi software-properties-common \
-sudo zlib1g-dev -y
+sudo apt-get install apt-transport-https asciidoctor bison build-essential clang cmake \
+curl debhelper dkms dwarves flex g++ gcc gdb gdebi git i965-va-driver-shaders  libargon2-dev \
+libayatana-indicator7 libdbusmenu-gtk4 libelf-dev libgcrypt20-dev libxss1  libodbc1 libqrencode-dev \
+libqt5svg5-dev libqt5x11extras5-dev libquazip5-dev  libreadline-dev libsodium-dev libssl-dev \
+slibusb-1.0-0-dev libva-drm2 libva-x11-2 libxi-dev libykpers-1-dev libxtst-dev libyubikey-dev \
+linux-headers-$(uname -r) make meson python3-pyqt5 qmlscene qt5-qmake \
+qtdeclarative5-dev qtbase5-dev qtbase5-private-dev qttools5-dev qttools5-dev-tools rofi \
+software-properties-common sudo zlib1g-dev -y
 echo ">> Removing unnecessary packages..." && sleep 2
 sudo apt-get remove --purge bluetooth bluez bluez-cups bluez-obexd exfalso fcitx* \
 goldendict ibus im-config mc minicom mlterm mlterm-tiny mozc-data mutt parole \
@@ -97,23 +97,21 @@ rm -f packages.microsoft.gpg
 echo ">> Re-updating repos and upgrading..." && sleep 2
 sudo apt-get update && apt-get upgrade -y
 echo '>> Install essential softwares...' && sleep 2
-sudo apt-get install cmus dhcpcd5 dosfstools gedit gmtp openbox picom \
-playerctl tint2 ttf-mscorefonts-installer unrar unzip xarchiver xfce4 xfce4-goodies -y
+sudo apt-get install cmus dhcpcd5 dosfstools gedit gmtp openbox picom playerctl \
+tint2 ttf-mscorefonts-installer unrar unzip xarchiver xfce4 xfce4-goodies zsh-y
 echo '>> Install other softwares...' && sleep 2
-sudo apt-get install android-tools-adb atom audacious audacity breeze-icon-theme \
+sudo apt-get install android-tools-adb atom audacious audacity blender breeze-icon-theme \
 cmatrix code conky cups deepin-terminal dosbox dotnet-runtime-5.0 dotnet-sdk-5.0 \
-emacs evince feh ffmpeg filezilla ghex gimp google-chrome-stable gparted \
+emacs evince feh ffmpeg filezilla galculator ghex gimp google-chrome-stable gparted \
 grub-customizer gsmartcontrol hexchat hplip hwinfo i3 idle idle3 inkscape kpat \
 libgconf-2-4 libreoffice lightdm-webkit2-greeter links lutris lxtask menulibre \
 microsoft-edge-stable neofetch ntp numix-icon-theme-circle pavucontrol pavumeter \
 playonlinux polybar pulseaudio qbittorrent radeontop rclone signal-desktop skypeforlinux \
 spotify-client steam stellarium synaptic teams telegram-desktop terminator \
-texlive-fonts-extra texlive-latex-extra texstudio thunderbird tk vlc wmmatrix \
+texlive-fonts-extra texlive-latex-extra texlive-lang-italian texlive-lang-english \
+texlive-publishers texlive-science texstudio thunderbird tk vlc wmmatrix \
 xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra \
 xscreensaver-screensaver-bsod xscreensaver-screensaver-dizzy -y
-
-sudo dpkg -i *.deb
-sudo apt-get -f install -y
 
 echo ">> Installing i3-gaps..." && sleep 2
 sudo apt purge i3 -y
