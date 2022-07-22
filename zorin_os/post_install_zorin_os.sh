@@ -18,13 +18,6 @@ quodlibet transmission-gtk xiterm+thai -y
 sudo apt-get autoremove -y
 echo '>> Adding custom repositories...' && sleep 2
 
-# ATOM EDITOR
-wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > \
-/etc/apt/sources.list.d/atom.list'
-echo 'deb http://download.opensuse.org/repositories/home:/antergos/Debian_9.0/ /' | \
-sudo tee /etc/apt/sources.list.d/home:antergos.list
-
 # DOTNET 5.0
 wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -98,7 +91,7 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/p
 https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 rm -f packages.microsoft.gpg
 
-sudo echo 'PATH="/usr/local/bin:/sbin:/usr/sbin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin:"' >> /etc/environment
+sudo echo 'PATH="/usr/local/bin:/sbin:/usr/sbin:/usr/bin:/bin:/usr/local/games:/usr/games:"' >> /etc/environment
 sudo source /etc/environment
 
 echo ">> Re-updating repos and upgrading..." && sleep 2
@@ -107,7 +100,7 @@ echo '>> Install essential softwares...' && sleep 2
 sudo apt-get install brasero cmus dhcpcd5 dosfstools gedit gmtp openbox compton \
 playerctl tint2 ttf-mscorefonts-installer unrar unzip xarchiver xfce4 xfce4-goodies -y
 echo '>> Install other softwares...' && sleep 2
-sudo apt-get install android-tools-adb atom audacious audacity breeze-icon-theme \
+sudo apt-get install android-tools-adb audacious audacity breeze-icon-theme \
 cmatrix code conky cups deepin-terminal dosbox dotnet-runtime-5.0 dotnet-sdk-5.0 \
 emacs evince feh ffmpeg filezilla ghex gimp google-chrome-stable gparted \
 grub-customizer gsmartcontrol hexchat hplip hwinfo i3 idle idle3 inkscape kpat \
@@ -118,14 +111,6 @@ spotify-client steam stellarium synaptic teams telegram-desktop terminator \
 texlive-fonts-extra texlive-latex-extra texstudio thunderbird tk vlc wmmatrix \
 xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra \
 xscreensaver-screensaver-bsod xscreensaver-screensaver-dizzy zsh -y
-
-wget http://ftp.it.debian.org/debian/pool/main/libi/libindicator/libindicator3-7_0.5.0-4_amd64.deb
-wget http://ftp.iinet.net.au/pub/ubuntu/pool/main/liba/libappindicator/libappindicator3-1_12.10.1+20.04.20200408.1-0ubuntu1_amd64.deb
-wget https://github.com/eneshecan/whatsapp-for-linux/releases/download/v1.3.1/whatsapp-for-linux_1.3.1_amd64.deb
-sudo dpkg -i *.deb
-sudo apt-get -f install -y
-
-
 
 echo ">> Installing i3-gaps..." && sleep 2
 sudo apt purge i3 -y
@@ -140,7 +125,8 @@ meson .. && ninja && sudo ninja install
 echo ">> Installing flatpak and apps..." && sleep 2
 sudo apt-get install flatpak -y
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install com.discordapp.Discord com.axosoft.GitKraken -y
+sudo flatpak install com.discordapp.Discord com.axosoft.GitKraken com.jetbrains.PyCharm-Community \
+org.telegram.desktop  com.github.eneshecan.WhatsAppForLinux -y
 
 echo ">> Installing fonts..." && sleep 2
 sudo cp fonts/* /usr/local/share/fonts && sudo fc-cache /usr/local/share/fonts

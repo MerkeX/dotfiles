@@ -7,7 +7,7 @@ sudo pacman -S yay --needed
 echo '>> Installing other packages...' && sleep 2
 yay -S --needed --noconfirm accountsservice acpi acpid aircrack-ng alsa-firmware \
 alsa-utils amd-ucode android-tools android-udev apm apparmor arc-dark-xfce4-terminal \
-arduino arduino-builder arduino-docs atom audacity autoconf automake avahi avidemux-cli \
+arduino arduino-builder arduino-docs audacity autoconf automake avahi avidemux-cli \
 avidemux-qt b43-fwcutter base bash-completion bison blender blueman brasero \
 btrfs-progs bzip2 catfish cmake cmatrix cmus code conky conky-i3 cool-retro-term \
 coreutils cpupower crda cronie cryptsetup deepin-terminal device-mapper dhclient \

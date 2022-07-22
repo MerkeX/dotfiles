@@ -39,7 +39,7 @@ echo ":: We have installed chocolatey successfully. Now installing the gui..."; 
 choco.exe install chocolateygui -y; sleep 2
 echo ":: Installing various softwares..."; sleep 2
 # Delete software you don't need/want to install
-choco.exe install 7zip adobereader arduino atom audacity autohotkey blender `
+choco.exe install 7zip adobereader arduino audacity autohotkey blender `
 ccleaner  cmake cpu-z discord dosbox droidcamclient epicgameslauncher `
 electrum ffmpeg filezilla firefox gimp git gitkraken goggalaxy `
 google-drive-file-stream googlechrome gpu-z gsmartcontrol horizon hwinfo `

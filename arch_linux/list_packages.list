@@ -17,7 +17,6 @@ arduino-builder
 arduino-cli
 arduino-ctags
 arduino-docs
-atom
 audacity
 autoconf
 automake

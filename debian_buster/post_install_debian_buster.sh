@@ -17,13 +17,6 @@ mlterm mlterm-tiny mozc-data mutt parole quodlibet transmission-gtk xiterm+thai 
 sudo apt-get autoremove -y
 echo '>> Adding custom repositories...' && sleep 2
 
-# ATOM EDITOR
-wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > \
-/etc/apt/sources.list.d/atom.list'
-echo 'deb http://download.opensuse.org/repositories/home:/antergos/Debian_9.0/ /' | \
-sudo tee /etc/apt/sources.list.d/home:antergos.list
-
 # DOTNET 5.0
 wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -95,10 +88,10 @@ rm -f packages.microsoft.gpg
 echo ">> Re-updating repos and upgrading..." && sleep 2
 sudo apt-get update && apt-get upgrade -y
 echo '>> Install essential softwares...' && sleep 2
-sudo apt-get install cmus dhcpcd5 dosfstools gedit gmtp openbox picom \
+sudo apt-get install cmus dhcpcd5 dosfstools gedit gmtp openbox compton \
 playerctl tint2 ttf-mscorefonts-installer unrar unzip xarchiver xfce4 xfce4-goodies -y
 echo '>> Install other softwares...' && sleep 2
-sudo apt-get install android-tools-adb atom audacious audacity breeze-icon-theme \
+sudo apt-get install android-tools-adb audacious audacity breeze-icon-theme \
 cmatrix code codelite codelite-plugins conky cups deepin-terminal dosbox \
 dotnet-runtime-5.0 dotnet-sdk-5.0 emacs evince feh ffmpeg filezilla ghex gimp \
 google-chrome-stable gparted grub-customizer gsmartcontrol hexchat hplip hwinfo \

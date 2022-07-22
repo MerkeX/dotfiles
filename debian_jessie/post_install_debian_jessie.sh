@@ -53,11 +53,6 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get -f install
 
-# INSTALLIG ATOM PACKAGES
-echo ">> Installing ATOM packages" && sleep 2
-#apm install gitlab-integration gitlab ide-python atom-python-run ide-c-cpp monokai \
-#gruvbox gruvbox-dark-ui dracula-ui markdown-preview
-
 echo ">> Installing fonts..." && sleep 2
 cd ./fonts && sudo cp * /usr/local/share/fonts && cd ..
 
