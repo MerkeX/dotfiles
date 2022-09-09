@@ -88,20 +88,21 @@ rm -f packages.microsoft.gpg
 echo ">> Re-updating repos and upgrading..." && sleep 2
 sudo apt-get update && apt-get upgrade -y
 echo '>> Install essential softwares...' && sleep 2
-sudo apt-get install cmus dhcpcd5 dosfstools gedit gmtp openbox compton \
-playerctl tint2 ttf-mscorefonts-installer unrar unzip xarchiver xfce4 xfce4-goodies -y
+sudo apt-get install cmus dhcpcd5 dosfstools fonts-fantasque-sans gedit gmtp openbox \
+pcmanfm compton playerctl tint2 ttf-mscorefonts-installer unrar unzip xarchiver xfce4 \
+xfce4-goodies -y
 echo '>> Install other softwares...' && sleep 2
 sudo apt-get install android-tools-adb audacious audacity breeze-icon-theme \
 cmatrix code codelite codelite-plugins conky cups deepin-terminal dosbox \
 dotnet-runtime-5.0 dotnet-sdk-5.0 emacs evince feh ffmpeg filezilla ghex gimp \
 google-chrome-stable gparted grub-customizer gsmartcontrol hexchat hplip hwinfo \
-i3 idle idle3 inkscape kpat libgconf-2-4 libreoffice lightdm-webkit2-greeter links lutris \
-lxtask menulibre microsoft-edge-stable neofetch ntp pavucontrol pavumeter \
-playonlinux pulseaudio qbittorrent radeontop rclone signal-desktop spotify-client \
-steam stellarium synaptic teams terminator texlive-fonts-extra texlive-latex-extra \
-texlive-latex-recommended texlive-lang-italian texlive-publishers texlive-science \
-texstudio thunderbird tk vlc wmmatrix xscreensaver-data-extra xscreensaver-gl \
-xscreensaver-gl-extra xscreensaver-screensaver-bsod xscreensaver-screensaver-dizzy -y
+i3 idle idle3 inkscape kpat libgconf-2-4 libreoffice links lutris lxtask menulibre \
+microsoft-edge-stable neofetch ntp pavucontrol pavumeter playonlinux pulseaudio \
+qbittorrent radeontop rclone signal-desktop spotify-client steam stellarium synaptic \
+teams terminator texlive-fonts-extra texlive-latex-extra texlive-latex-recommended \
+texlive-lang-italian texlive-publishers texlive-science texstudio thunderbird tk vlc \
+wmmatrix xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra \
+xscreensaver-screensaver-bsod xscreensaver-screensaver-dizzy -y
 
 wget http://ftp.de.debian.org/debian/pool/main/d/dwarves-dfsg/dwarves_1.20-1_amd64.deb
 sudo dpkg -i *.deb
@@ -121,10 +122,13 @@ echo ">> Installing flatpak and apps..." && sleep 2
 sudo apt-get install flatpak -y
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install com.discordapp.Discord com.axosoft.GitKraken com.jetbrains.PyCharm-Community \
-org.telegram.desktop  com.github.eneshecan.WhatsAppForLinux -y
+org.telegram.desktop io.github.mimbrero.WhatsAppDesktop -y
 
 echo ">> Installing fonts..." && sleep 2
 sudo cp fonts/* /usr/local/share/fonts && sudo fc-cache /usr/local/share/fonts
+
+echo 'PATH="/sbin/:/usr/sbin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"' > /etc/environment
+sudo source /etc/environment
 
 # INSTALLING NEW THEMES
 echo '>> Install new themes...' && sleep 2
@@ -170,7 +174,6 @@ rm -rf OBTheme-Collections
 
 # INSTALLING ICON THEMES
 echo ">> Installing icon packs..." && sleep 2
-
 sudo apt-get install numix-icon-theme numix-icon-theme-circle
 
 # Win10 Icon Theme
