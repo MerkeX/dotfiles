@@ -35,7 +35,7 @@ texlive-science texlive-publishers texstudio thunderbird tk vala-panel vlc vscod
 
 echo ">> Enabling 'flatpak' repo..." && sleep 2
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install  com.axosoft.Gitkraken t  -y
+sudo flatpak install com.axosoft.Gitkraken  -y
 
 echo ">> Installing fonts..." && sleep 2
 cd fonts/ && sudo cp * /usr/share/fonts/TTF
