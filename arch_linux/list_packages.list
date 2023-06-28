@@ -40,7 +40,6 @@ cmus
 code
 codelite-bin
 conky
-conky-manager2-git
 cool-retro-term
 coreutils
 cryptsetup
@@ -80,7 +79,6 @@ firefox-i18n-it
 flex
 florence
 fortune-mod
-fpm
 ft2-clone
 galculator
 garcon
@@ -121,10 +119,6 @@ hexchat
 hplip
 httrack
 hwinfo
-i3-gaps-rounded-git
-i3blocks
-i3lock
-i3status
 inetutils
 inkscape
 intel-ucode
@@ -175,7 +169,6 @@ m4
 make
 man-db
 man-pages
-marlin-bzr
 mcmojave-circle-icon-theme
 mdadm
 menulibre
@@ -208,7 +201,6 @@ networkmanager-vpnc
 nikto
 nmap
 ntfs-3g
-ntop
 ntp
 numix-circle-icon-theme-git
 numix-icon-theme-git
@@ -284,8 +276,6 @@ steam
 sudo
 sysfsutils
 system-config-printer
-systemd
-systemd-sysvcompat
 tar
 teams
 telegram-desktop
@@ -321,7 +311,6 @@ vulkan-intel
 vulkan-mesa-layers
 vulkan-swrast
 weather-bar
-whatsapp-nativefier
 which
 whitesur-cursor-theme-git
 whitesur-gtk-theme-git
@@ -390,7 +379,6 @@ xorg-server-xephyr
 xorg-xbacklight
 xorg-xev
 xorg-xinit
-xow
 xpadneo-dkms
 yay
 yosemite-gtk-theme

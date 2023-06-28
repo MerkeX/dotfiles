@@ -14,8 +14,8 @@ cd ./fonts && sudo cp * /usr/local/share/fonts && cd ..
 
 # INSTALLING NEW THEMES
 echo '>> Install new themes...' && sleep 2
-sudo apt-get install git gtk2-engines-murrine gtk2-engines-pixbuf \
-libcanberra-gtk-module libglib2.0-dev meson ninja sassc
+yay -S --needed git gtk-engines-murrine \
+gdk-pixbuf2 libcanberra meson ninja sassc
 
 # Mojave dark
 git clone https://github.com/MerkeX/Mojave-kvantum.git
@@ -52,20 +52,6 @@ sudo cp -r * /usr/share/icons && cd .. && rm -rf McOS-Mint-Cinnamon-Edition/
 git clone https://github.com/MerkeX/Os-Catalina-icons.git
 sudo cp -r Os-Catalina-icons /usr/share/icons/Os_Catalina
 
-# Korla (and his variants) theme
-git clone https://github.com/MerkeX/korla.git
-cd korla && rm *.png *.jpg LICENSE *.md
-sudo cp -r * /usr/share/icons/ && cd .. && rm -rf korla/
-
-# Pinbadge theme
-git clone https://github.com/MerkeX/pinbadge-icon-theme
-cd pinbadge-icon-theme && sudo make install -j${nproc}
-cd .. && rm -rf pinbadge-icon-theme
-
-# Paper theme
-git clone https://github.com/MerkeX/paper-icon-theme.git
-cd paper-icon-theme && meson "build" --prefix=/usr
-sudo ninja -C "build" install && cd .. && rm -rf paper-icon-theme/
 
 # Vibrancy colors
 wget http://download1640.mediafire.com/9e0fqjgl776g/i25blth6npp23h5/Vibrancy-Colors-GTK-Icon-Theme-v-2-7.tar.gz
