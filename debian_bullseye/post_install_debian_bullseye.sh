@@ -19,7 +19,7 @@ sudo apt-get autoremove -y
 echo '>> Adding custom repositories...' && sleep 2
 
 # DOTNET 5.0
-wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
 
@@ -30,9 +30,9 @@ echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | \
 sudo tee /etc/apt/sources.list.d/google-chrome.list
 
 # LUTRIS
-echo "deb http://download.opensuse.org/repositories/home:/strycore/Debian_10/ ./" | \
+echo "deb http://download.opensuse.org/repositories/home:/strycore/Debian_11/ ./" | \
 sudo tee /etc/apt/sources.list.d/lutris.list
-wget -q https://download.opensuse.org/repositories/home:/strycore/Debian_10/Release.key -O- | \
+wget -q https://download.opensuse.org/repositories/home:/strycore/Debian_11/Release.key -O- | \
 sudo apt-key add -
 
 # MICROSOFT EDGE
@@ -43,14 +43,20 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge sta
  /etc/apt/sources.list.d/microsoft-edge-stable.list'
 sudo rm microsoft.gpg
 
-# MICROSOFT TEAMS
+# MICROSOFT TEAMS - PREVIEW
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" >\
 /etc/apt/sources.list.d/teams.list'
 
+# TEAMS FOR LINUX 
+sudo mkdir -p /etc/apt/keyrings
+sudo wget -qO /etc/apt/keyrings/teams-for-linux.asc /etc/apt/keyrings/teams-for-linux.asc https://repo.teamsforlinux.de/teams-for-linux.asc 
+echo "deb [signed-by=/etc/apt/keyrings/teams-for-linux.asc arch=$(dpkg --print-architecture)] https://repo.teamsforlinux.de/debian/ stable main" | \
+sudo tee /etc/apt/sources.list.d/teams-for-linux-packages.list
+
 # SPOTIFY
-curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | \
-sudo apt-key add -
+curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | \
+sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 echo "deb http://repository.spotify.com stable non-free" | \
 sudo tee /etc/apt/sources.list.d/spotify.list
 
@@ -62,40 +68,30 @@ echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | \
 sudo tee /etc/apt/sources.list.d/skypeforlinux.list
 
 # SIGNAL DESKTOP
-curl -fsSL https://download.opensuse.org/repositories/home:antergos/Debian_9.0/Release.key | \
-gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_antergos.gpg > /dev/null &&
-wget -O- https://updates.signal.org/desktop/apt/keys.asc | \
-gpg --dearmor > signal-desktop-keyring.gpg
-cat signal-desktop-keyring.gpg | \
-sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
-  sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-sudo rm signal-desktop.keyring.gpg
+  sudo tee /etc/apt/sources.list.d/signal-xenial.list
 
 # TEAMVIEWER
-wget -O - https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc |  \
- apt-key add -
+wget -O - https://linux.teamviewer.com/pubkey/currentkey.asc | sudo apt-key add -
 sudo sh -c 'echo "deb https://linux.teamviewer.com/deb stable main" >\
 /etc/apt/sources.list.d/teamviewer.list'
 
-# VISUAL STUDIO CODE
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | \
-gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] \
-https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
+# VS CODIUM
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+    | gpg --dearmor \
+    | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
+    | sudo tee /etc/apt/sources.list.d/vscodium.list
 
-
-echo ">> Re-updating repos and upgrading..." && sleep 2
-sudo apt-get update && apt-get upgrade -y
 echo '>> Install essential softwares...' && sleep 2
-sudo apt-get install cmus dhcpcd5 dosfstools  fonts-fantasque-sans gedit gmtp openbox \
+sudo apt-get install cmus dhcpcd5 dosfstools fonts-fantasque-sans gedit gmtp openbox \
 pcmanfm picom pipewire-bin pipewire playerctl tint2 ttf-mscorefonts-installer unrar unzip \
 xarchiver xfce4 xfce4-goodies zsh -y
 echo '>> Install other softwares...' && sleep 2
 sudo apt-get install android-tools-adb arduino arduino-core audacious audacity blender \
-breeze-icon-theme cmatrix code conky cups deepin-terminal dosbox dotnet-runtime-5.0 \
+breeze-icon-theme cmatrix codium conky cups deepin-terminal dosbox dotnet-runtime-5.0 \
 dotnet-sdk-5.0 emacs evince feh ffmpeg filezilla galculator ghex gimp google-chrome-stable \
 goverlay gparted grub-customizer gsmartcontrol hexchat hplip hwinfo i3 idle idle3 inkscape \
 kpat libreoffice lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings links lutris lxtask \
@@ -107,20 +103,10 @@ texlive-publishers texlive-science texstudio thunderbird tk vlc wmmatrix \
 xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra \
 xscreensaver-screensaver-bsod xscreensaver-screensaver-dizzy -y
 
-echo ">> Installing i3-gaps..." && sleep 2
-sudo apt purge i3 -y
-sudo apt install libev-dev libpango1.0-dev libstartup-notification0-dev \
-libxcb-cursor-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-util0-dev \
-libxcb-xinerama0-dev libxcb-xkb-dev libxcb-shape0-dev libxcb-xrm-dev libxcb-xrm0 \
-libxcb1-dev libxkbcommon-dev libxkbcommon-x11-dev libyajl-dev xcb -y
-git clone https://www.github.com/Airblader/i3 i3-gaps
-cd i3-gaps && mkdir -p build && cd build
-meson .. && ninja && sudo ninja install
-
 echo ">> Installing flatpak and apps..." && sleep 2
 sudo apt-get install flatpak -y
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install com.discordapp.Discord com.axosoft.GitKraken com.jetbrains.PyCharm-Community \
+sudo flatpak install com.discordapp.Discord com.axosoft.GitKraken \
 org.telegram.desktop  io.github.mimbrero.WhatsAppDesktop -y
 
 echo ">> Installing fonts..." && sleep 2
