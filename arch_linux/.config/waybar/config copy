@@ -5,12 +5,12 @@
     //
     // "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    //"height": 32, // Waybar height (to be removed for auto height)
+    "height": 26, // Waybar height (to be removed for auto height)
     //"width": 780, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/firefox", "custom/fileman", "custom/spotifyapp", "custom/spotify"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/firefox", "custom/fileman", "custom/spotifyapp"],// "custom/spotify"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/leftend", "idle_inhibitor", "custom/spacer", "custom/logout", "custom/spacer", "pulseaudio", "custom/spacer","temperature", "network", "custom/spacer", "backlight", "custom/spacer", "disk", "custom/spacer", "tray", "custom/spacer", "battery","custom/spacer", "custom/mouse", "custom/rightend", "clock"],
+    "modules-right": ["custom/leftend", "idle_inhibitor", "custom/spacer", "custom/logout", "custom/spacer", "pulseaudio", "custom/spacer","cpu", "custom/spacer","memory", "custom/spacer","temperature#1","custom/spacer","temperature#2", "custom/spacer","network", "custom/spacer", "custom/spacer", "disk#1","custom/spacer","disk#2", "custom/spacer", "tray", "custom/spacer", "custom/rightend", "clock"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -28,10 +28,10 @@
     //     }
     // },
     "custom/spacer": {
-        "format": " "
+        "format": " |  "
     },
     "custom/leftend": {
-        "format": " "
+        "format": "       "
     },
     "custom/rightend": {
         "format": " "
@@ -124,26 +124,39 @@
 //        "bat": "BAT2"
 //    },
 
-"temperature": {
-    "thermal-zone": 0,
- "format": "{icon} {temperatureC}°C",
- "format-icons":[""],
- "interval": 30
+"cpu":{
+    "format":"CPU USAGE: {usage}%",
+    "format-alt":"{usage0} {usage1} {usage2} {usage3}",
+    "interval": 1
 },
+
+"memory": {
+    "interval": 5,
+    "format": "{used} / {total}  | {percentage}% ",
+    //"max-length": 10
+},
+
 "network": {
+    
         "interface": "eth0", // (Optional) To force the use of this interface
 //        "format-wifi": " WiFi ({signalStrength}%)",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  DOWN:{bandwidthDownBytes} UP:{bandwidthTotalBytes}",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "Disconnected ⚠"
+       // "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    "disk 1": {
+    "disk#1": {
                 "interval": 30,
                 "on-click": "baobab",
-                "format": "{used}/{total}"
-                //"format": "{free}"
+                "format": "ROOT: {used} / {total}",
+                "path": "/"
     },
+    "disk#2": {
+        "interval": 30,
+        "on-click": "baobab",
+        "format": "HOME: {used} / {total}",
+        "path": "/home"
+},
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}%",
@@ -165,6 +178,26 @@
         },
         "on-click": "pavucontrol"
     },
+
+    "temperature#1": { // CPU
+   // "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/",
+    //"input_filename":"temp1_input",
+    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons":["CPU "],
+    //"tooltip": "true",
+    "interval": 1
+},
+"temperature#2": { // GPU
+   // "hwmon-path-abs":"/sys/devices/pci0000:00/0000:00:09.0/0000:02:00.0/hwmon/",
+  //  "input_filename":"temp1_input",
+  "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+  "format": "{icon} {temperatureC}°C",
+ "format-icons":["GPU "],
+ //"tooltip": "true",
+ "interval": 1
+},
+
     "custom/spotify": {
     	"exec": "/usr/bin/python3 /home/$USER/.config/waybar/mediaplayer.py --player spotify",
     	"format": "{}  ",
