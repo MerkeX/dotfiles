@@ -4,13 +4,14 @@ echo '>> Adding i386 architecture and updating repositories...' && sleep 2
 sudo dpkg --add-architecture i386 && apt-get update
 echo '>> Install core software...' && sleep 2
 sudo apt-get install acpi apt-transport-https asciidoctor bison build-essential clang cmake \
-curl debhelper dkms dwarves flex g++ gcc gdb gdebi git i965-va-driver-shaders  libargon2-dev \
-libayatana-indicator7 libdbusmenu-gtk4 libelf-dev  libgconf-2-4 libgcrypt20-dev libxss1  \
-libodbc1 libqrencode-dev libqt5svg5-dev libqt5x11extras5-dev libquazip5-dev  libreadline-dev \
-libsodium-dev libssl-dev libusb-1.0-0-dev libva-drm2 libva-x11-2 libxi-dev libykpers-1-dev \
-libxtst-dev libyubikey-dev linux-headers-$(uname -r) make meson python3-pyqt5 qmlscene \
-qt5-qmake qtdeclarative5-dev qtbase5-dev qtbase5-private-dev qttools5-dev qttools5-dev-tools \
-rofi software-properties-common sudo zlib1g-dev -y
+curl debhelper dkms dwarves find flex g++ gcc gdb gdebi git libargon2-dev libbotan-2-dev  \
+libayatana-indicator7 libcap-dev libdbusmenu-gtk4 libelf-dev libgconf-2-4 libgcrypt20-dev \
+libminizip-de libodbc1 libpcsclite-dev libqrencode-dev libqt5svg5-dev libqt5x11extras5-dev \
+libquazip5-dev libreadline-dev  libsensors-dev libsodium-dev libssl-dev libusb-1.0-0-dev \
+libva-drm2 libva-x11-2 libxi-dev libxss1 libykpers-1-dev libxtst-dev libyubikey-dev \
+linux-headers-$(uname -r) locate make meson python3-pyqt5 qmlscene qt5-qmake \
+qtdeclarative5-dev qtbase5-dev qtbase5-private-dev \qttools5-dev qttools5-dev-tools \
+rofi software-properties-common strace sudo zlib1g-dev -y
 echo ">> Removing unnecessary packages..." && sleep 2
 sudo apt-get remove --purge bluetooth bluez bluez-cups bluez-obexd exfalso fcitx* \
 goldendict ibus im-config mc minicom mlterm mlterm-tiny mozc-data mutt parole \
@@ -30,10 +31,11 @@ echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | \
 sudo tee /etc/apt/sources.list.d/google-chrome.list
 
 # LUTRIS
-echo "deb http://download.opensuse.org/repositories/home:/strycore/Debian_11/ ./" | \
-sudo tee /etc/apt/sources.list.d/lutris.list
-wget -q https://download.opensuse.org/repositories/home:/strycore/Debian_11/Release.key -O- | \
-sudo apt-key add -
+echo "deb [signed-by=/etc/apt/keyrings/lutris.gpg] \
+https://download.opensuse.org/repositories/home:/strycore/Debian_11/ ./" \
+| sudo tee /etc/apt/sources.list.d/lutris.list > /dev/null
+wget -q -O- https://download.opensuse.org/repositories/home:/strycore/Debian_12/Release.key | \
+gpg --dearmor | sudo tee /etc/apt/keyrings/lutris.gpg > /dev/null
 
 # MICROSOFT EDGE
 curl https://packages.microsoft.com/keys/microsoft.asc | \
@@ -86,22 +88,28 @@ echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https:/
     | sudo tee /etc/apt/sources.list.d/vscodium.list
 
 echo '>> Install essential softwares...' && sleep 2
-sudo apt-get install cmus dhcpcd5 dosfstools fonts-fantasque-sans gedit gmtp openbox \
+sudo apt-get update
+sudo apt-get install cmus dhcpcd5 dosfstools fonts-fantasque-sans gedit gmtp npm nodejs openbox \
 pcmanfm picom pipewire-bin pipewire playerctl tint2 ttf-mscorefonts-installer unrar unzip \
 xarchiver xfce4 xfce4-goodies zsh -y
 echo '>> Install other softwares...' && sleep 2
 sudo apt-get install android-tools-adb arduino arduino-core audacious audacity blender \
-breeze-icon-theme cmatrix codium conky cups deepin-terminal dosbox dotnet-runtime-5.0 \
-dotnet-sdk-5.0 emacs evince feh ffmpeg filezilla galculator ghex gimp google-chrome-stable \
-goverlay gparted grub-customizer gsmartcontrol hexchat hplip hwinfo i3 idle idle3 inkscape \
-kpat libreoffice lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings links lutris lxtask \
-mangohud menulibre microsoft-edge-stable neofetch ntp numix-gtk-theme numix-icon-theme \
-numix-icon-theme-circle pavucontrol pavumeter playonlinux polybar pulseaudio qbittorrent \
-radeontop rclone signal-desktop skypeforlinux spotify-client steam stellarium synaptic teams \
+breeze-icon-theme cava cmatrix cmus codium conky cups deepin-terminal dosbox dotnet-runtime-5.0 \
+dotnet-sdk-5.0 emacs evince feh ffmpeg filezilla fonts-fork-awesome fonts-ibm-plex \
+galculator ghex gimp google-chrome-stable goverlay gparted grub-customizer gsmartcontrol hexchat \
+hplip hwinfo i3 idle idle3 inkscape kpat libreoffice lightdm lightdm-gtk-greeter \
+lightdm-gtk-greeter-settings links lutris lxtask mangohud menulibre microsoft-edge-stable \
+neofetch ntp network-manager-gnome numix-gtk-theme numix-icon-theme numix-icon-theme-circle \
+openshot-qt pavucontrol pavumeter pdfsam playonlinux polybar pulseaudio qbittorrent radeontop \
+rclone signal-desktop skypeforlinux spotify-client steam stellarium synaptic teams-for-linux \
 terminator texlive-fonts-extra texlive-latex-extra texlive-lang-italian texlive-lang-english \
-texlive-publishers texlive-science texstudio thunderbird tk vlc wmmatrix \
-xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra \
-xscreensaver-screensaver-bsod xscreensaver-screensaver-dizzy -y
+texlive-publishers texlive-science texstudio thunderbird tk vlc xscreensaver-data-extra \
+xscreensaver-gl xscreensaver-gl-extra xscreensaver-screensaver-bsod xscreensaver-screensaver-dizzy -y
+
+echo ">> Copying pipewire configs" && sleep 2
+ln -s /usr/share/applications/pipewire.desktop /etc/xdg/autostart/pipewire.desktop
+mkdir -p /etc/pipewire/pipewire.conf.d
+ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 
 echo ">> Installing flatpak and apps..." && sleep 2
 sudo apt-get install flatpak -y
