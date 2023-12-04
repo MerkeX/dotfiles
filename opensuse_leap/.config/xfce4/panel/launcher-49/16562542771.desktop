@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Blender
+GenericName=3D modeler
+GenericName[it]=Modellatore 3D
+Comment=3D modeling, animation, rendering and post-production
+Comment[it]=Modellazione 3D, animazione, rendering e post-produzione
+Keywords=3d;cg;modeling;animation;painting;sculpting;texturing;video editing;video tracking;rendering;render engine;cycles;game engine;python;
+Exec=blender %f
+Icon=blender
+Terminal=false
+Type=Application
+Categories=Graphics;3DGraphics;
+MimeType=application/x-blender;
+X-XFCE-Source=file:///usr/share/applications/blender.desktop

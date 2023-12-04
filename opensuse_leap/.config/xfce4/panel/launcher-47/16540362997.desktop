@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Categories=System;Monitor;
+Name=GSmartControl
+GenericName=Hard Disk and SSD Health Inspection
+Comment=Monitor and control SMART data on hard disk and solid-state drives
+Icon=gsmartcontrol
+Exec="/usr/bin/gsmartcontrol-root"
+X-XFCE-Source=file:///usr/share/applications/gsmartcontrol.desktop

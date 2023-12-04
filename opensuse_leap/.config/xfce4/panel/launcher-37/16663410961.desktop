@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=GitKraken
+Comment=Unleash your repo
+GenericName=Git Client
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=gitkraken --file-forwarding com.axosoft.GitKraken @@u %U @@
+Icon=com.axosoft.GitKraken
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Development;RevisionControl;
+MimeType=text/plain;
+StartupWMClass=gitkraken
+X-Desktop-File-Install-Version=0.26
+X-Flatpak-Tags=proprietary;
+X-Flatpak=com.axosoft.GitKraken
+X-XFCE-Source=file:///var/lib/flatpak/exports/share/applications/com.axosoft.GitKraken.desktop

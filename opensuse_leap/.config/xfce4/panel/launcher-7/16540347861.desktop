@@ -1,0 +1,17 @@
+[Desktop Entry]
+Categories=Network;FileTransfer;P2P;Qt;
+Exec=qbittorrent %U
+GenericName=BitTorrent client
+Comment=Download and share files over BitTorrent
+Icon=qbittorrent
+MimeType=application/x-bittorrent;x-scheme-handler/magnet;
+Name=qBittorrent
+Terminal=false
+Type=Application
+StartupNotify=false
+StartupWMClass=qbittorrent
+Keywords=bittorrent;torrent;magnet;download;p2p;
+Comment[it]=Client BitTorrent per il download di file via internet
+GenericName[it]=Client BitTorrent
+Name[it]=qBittorrent
+X-XFCE-Source=file:///usr/share/applications/org.qbittorrent.qBittorrent.desktop
