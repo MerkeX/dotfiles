@@ -4,10 +4,10 @@ echo '>> Adding i386 architecture and updating repositories...' && sleep 2
 sudo dpkg --add-architecture i386 && apt-get update
 echo '>> Install core software...' && sleep 2
 sudo apt-get install acpi apt-transport-https asciidoctor bison build-essential clang cmake \
-curl debhelper dkms dwarves find flex g++ gcc gdb gdebi git libargon2-dev libbotan-2-dev  \
+curl debhelper dkms dwarves findutils flex g++ gcc gdb gdebi git libargon2-dev libbotan-2-dev  \
 libayatana-indicator7 libcap-dev libdbusmenu-gtk4 libelf-dev libgconf-2-4 libgcrypt20-dev \
-libminizip-de libodbc1 libpcsclite-dev libqrencode-dev libqt5svg5-dev libqt5x11extras5-dev \
-libquazip5-dev libreadline-dev  libsensors-dev libsodium-dev libssl-dev libusb-1.0-0-dev \
+libminizip-dev libodbc1 libpcsclite-dev libqrencode-dev libqt5svg5-dev libqt5x11extras5-dev \
+libquazip5-dev libreadline-dev libsensors-dev libsodium-dev libssl-dev libusb-1.0-0-dev \
 libva-drm2 libva-x11-2 libxi-dev libxss1 libykpers-1-dev libxtst-dev libyubikey-dev \
 linux-headers-$(uname -r) locate make meson python3-pyqt5 qmlscene qt5-qmake \
 qtdeclarative5-dev qtbase5-dev qtbase5-private-dev \qttools5-dev qttools5-dev-tools \
@@ -82,27 +82,27 @@ echo '>> Install essential softwares...' && sleep 2
 sudo apt-get update
 sudo apt-get install cmus dhcpcd5 dosfstools fonts-fantasque-sans gedit gmtp npm nodejs openbox \
 pcmanfm picom pipewire-bin pipewire playerctl tint2 ttf-mscorefonts-installer unrar unzip \
-xarchiver xfce4 xfce4-goodies zsh -y
+wireplumber xarchiver xfce4 xfce4-goodies zsh -y
 echo '>> Install other softwares...' && sleep 2
 sudo apt-get install android-tools-adb arduino arduino-core audacious audacity blender \
 breeze-icon-theme cava cmatrix cmus codium conky cups deepin-terminal dosbox dotnet-runtime-5.0 \
 dotnet-sdk-5.0 emacs evince feh ffmpeg filezilla fonts-fork-awesome fonts-ibm-plex \
 galculator ghex gimp google-chrome-stable goverlay gparted grub-customizer gsmartcontrol hexchat \
-hplip hwinfo i3 idle idle3 inkscape kpat libreoffice lightdm lightdm-gtk-greeter \
+hplip hwinfo idle idle3 inkscape kpat libreoffice lightdm lightdm-gtk-greeter \
 lightdm-gtk-greeter-settings links lutris lxtask mangohud menulibre microsoft-edge-stable \
 neofetch ntp network-manager-gnome numix-gtk-theme numix-icon-theme numix-icon-theme-circle \
-openshot-qt pavucontrol pavumeter pdfsam playonlinux polybar pulseaudio qbittorrent radeontop \
+openshot-qt pavucontrol pavumeter pdfsam playonlinux polybar qbittorrent radeontop \
 rclone signal-desktop skypeforlinux spotify-client steam stellarium synaptic teams-for-linux \
 terminator texlive-fonts-extra texlive-latex-extra texlive-lang-italian texlive-lang-english \
 texlive-publishers texlive-science texstudio thunderbird tk vlc xscreensaver-data-extra \
 xscreensaver-gl xscreensaver-gl-extra xscreensaver-screensaver-bsod xscreensaver-screensaver-dizzy -y
 
 echo ">> Installing 'Swaywm' and extras..." && sleep 2
-sudo apt install sway swaylock swayimg swaybg  sway-backgrounds grimshot
-sudo apt install  foot libplayerctl-dev lxpolkit  waybar wofi wlogout
+sudo apt install sway swaylock swayimg swaybg sway-backgrounds grimshot -y
+sudo apt install foot libplayerctl-dev lxpolkit waybar wofi wlogout -y
 
 # DOTNET 5.0
-echo ">> Installing .NET Suite..." && sleeè 2
+echo ">> Installing .NET Suite..." && sleep 2
 wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
 chmod +x ./dotnet-install.sh
 ./dotnet-install.sh --version latest --runtime aspnetcore
@@ -111,7 +111,7 @@ echo ">> Installing flatpak and apps..." && sleep 2
 sudo apt-get install flatpak -y
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install com.discordapp.Discord com.axosoft.GitKraken \
-org.telegram.desktop  io.github.mimbrero.WhatsAppDesktop -y
+org.telegram.desktop io.github.mimbrero.WhatsAppDesktop -y
 
 echo ">> Installing fonts..." && sleep 2
 sudo cp fonts/* /usr/local/share/fonts && sudo fc-cache /usr/local/share/fonts
@@ -120,6 +120,7 @@ sudo cp fonts/* /usr/local/share/fonts && sudo fc-cache /usr/local/share/fonts
 echo '>> Install new themes...' && sleep 2
 sudo apt-get install gtk2-engines-murrine gtk2-engines-pixbuf libcanberra-gtk-module \
 libglib2.0-dev ninja-build sassc -y
+mkdir ~/temp
 
 # Kripton theme
 cd ~/temp
@@ -129,8 +130,8 @@ sudo cp -r Kripton/ /usr/share/themes && sudo rm -rf Kripton
 # WhiteSur theme
 cd ~/temp
 git clone https://github.com/MerkeX/WhiteSur-gtk-theme
- cd WhiteSur-gtk-theme && sudo ./install.sh -t all -d /usr/share/themes && cd ..
- sudo rm -rf WhiteSur-gtk-theme/
+cd WhiteSur-gtk-theme && sudo ./install.sh -t all -d /usr/share/themes && cd ..
+sudo rm -rf WhiteSur-gtk-theme/
 
 # INSTALL SOME THEMES FOR OPENBOX
 
@@ -168,6 +169,8 @@ sudo ninja -C "build" install && cd .. && rm -rf paper-icon-theme/
 git clone https://github.com/vinceliuice/WhiteSur-icon-theme
 cd WhiteSur-icon-theme && sudo ./install.sh -t all -d /usr/share/icons && cd ..
 sudo rm -rf WhiteSur-icon-theme/
+
+sudo rm -rf ~/temp
 
 echo ">> Finished installing icon packs..." && sleep 2
 echo ">> Done. Now rebooting..." && sleep 5 && sudo reboot
