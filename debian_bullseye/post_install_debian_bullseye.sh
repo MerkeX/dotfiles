@@ -6,7 +6,7 @@ echo '>> Install core software...' && sleep 2
 sudo apt-get install acpi apt-transport-https asciidoctor bison build-essential clang cmake \
 curl debhelper dkms dwarves find flex g++ gcc gdb gdebi git libargon2-dev libbotan-2-dev  \
 libayatana-indicator7 libcap-dev libdbusmenu-gtk4 libelf-dev libgconf-2-4 libgcrypt20-dev \
-libminizip-de libodbc1 libpcsclite-dev libqrencode-dev libqt5svg5-dev libqt5x11extras5-dev \
+libminizip-dev libodbc1 libpcsclite-dev libqrencode-dev libqt5svg5-dev libqt5x11extras5-dev \
 libquazip5-dev libreadline-dev  libsensors-dev libsodium-dev libssl-dev libusb-1.0-0-dev \
 libva-drm2 libva-x11-2 libxi-dev libxss1 libykpers-1-dev libxtst-dev libyubikey-dev \
 linux-headers-$(uname -r) locate make meson python3-pyqt5 qmlscene qt5-qmake \
