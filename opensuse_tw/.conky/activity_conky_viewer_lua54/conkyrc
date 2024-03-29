@@ -1,0 +1,113 @@
+-- This theme is a modification from this --> https://www.deviantart.com/ilnanny/art/Conky-DREX64-650318284
+-- @Name = Conky DREX64
+-- @Author = ilnanny
+
+
+conky.config =  {
+
+--## SETTINGS
+
+background = false,
+update_interval = 1,
+
+cpu_avg_samples = 1,
+net_avg_samples = 2,
+temperature_unit = 'celsius',
+
+double_buffer = true,
+no_buffers = true,
+text_buffer_size = 8192,
+
+gap_x = 20,
+gap_y = 0,
+minimum_width = 220, minimum_height = 450,
+maximum_width = 300,
+
+own_window = true,
+own_window_class = 'Conky',
+own_window_type = 'normal',
+own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+own_window_transparent = true,
+
+border_inner_margin =  0,
+border_outer_margin = 0,
+alignment = 'middle_right',
+
+
+draw_shades =  false,
+draw_outline = false,
+draw_borders = false,
+draw_graph_borders = false,
+
+override_utf8_locale = true,
+use_xft = true,
+--xftfont = 'SF-UI-Display-Regular:size=13',
+xftalpha = 1.0,
+uppercase = false,
+
+own_window_argb_value = 0,
+own_window_argb_visual = true,
+own_window_colour = FFFFFF,
+
+--# Defining colors
+
+color0 = 'BBBBBB', --# TITLE
+color1 = 'BBBBBB', --# TEXT
+color2 = 'BBBBBB', --# VALUE
+color3 = 'BBBBBB', --# BAR
+
+};
+--# END SETTINGS
+
+
+--# TEXT
+conky.text = [[
+
+${font Ostrich Sans:pixelsize=15,weight:bold}${color0}SYSTEM ${hr 2}
+${voffset 5}${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color1}Kernel:${alignr}${color2}$kernel
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color1}OS:${alignr}${color2}$nodename
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color1}Uptime:${alignr}${color2}$uptime
+${voffset 10}${font Ostrich Sans:pixelsize=15,weight:bold}${color0}CPU ${hr 2}
+# Showing TOP 5 CPU-consumers
+${voffset 5}${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color2}${top name 1}${alignr}${top cpu 1}%
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color2}${top name 2}${alignr}${top cpu 2}%
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color2}${top name 3}${alignr}${top cpu 3}%
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color2}${top name 4}${alignr}${top cpu 4}%
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color2}${top name 5}${alignr}${top cpu 5}%
+${voffset 10}${color #FFFFFF}${font Ostrich Sans:pixelsize=12}${color2}TOTAL CPU: ${CPU}%
+${color3}${cpubar 3}
+#Showing memory part with TOP 5
+${voffset 1}
+${font Ostrich Sans:pixelsize=15,weight:bold}${color1}RAM ${hr 2}
+${voffset 5}${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color2}${top_mem name 1}${alignr}${top_mem mem 1}%
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color2}${top_mem name 2}${alignr}${top_mem mem 2}%
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color2}${top_mem name 3}${alignr}${top_mem mem 3}%
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color2}${top_mem name 4}${alignr}${top_mem mem 4}%
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color2}${top_mem name 4}${alignr}${top_mem mem 5}%
+
+${font Ostrich Sans:pixelsize=12}${color1}RAM:${color2}${alignr}${execi 1 free -h | grep Mem: | cut -c27-31}B/${MEMMAX} --> ${memperc}%
+${color3}${membar 3}
+
+${voffset 5}${font Ostrich Sans:pixelsize=15,weight:bold}${color0}STORAGE ${hr 2}
+${voffset 5}${font Ostrich Sans:pixelsize=12}${color1}ROOT:${color2}${alignr}${fs_used /} / ${fs_size /} --> ${fs_used_perc /}%
+${color3}${fs_bar 3 /}
+${voffset 5}${font Ostrich Sans:pixelsize=12}${color1}HOME:${color2}${alignr}${fs_used /home} / ${fs_size /home} --> ${fs_used_perc /home}%
+${color3}${fs_bar 3 /home}
+${font Ostrich Sans:pixelsize=12}${color1}DATI:${color2}${alignr}${fs_used /media/dati} / ${fs_size /media/dati} --> ${fs_used_perc /media/dati}%
+${color3}${fs_bar 3 /media/dati}
+${font Ostrich Sans:pixelsize=12}${color1}GAMES:${color2}${alignr}${fs_used /media/games} / ${fs_size /media/games} --> ${fs_used_perc /media/games}%
+${color3}${fs_bar 3 /media/games}
+
+${font Ostrich Sans:pixelsize=13,weight:bold}${color0}NETWORK ${hr 2}
+${voffset 5}${offset 5}${color1}${font Ostrich Sans:pixelsize=12}${color1}UP:${alignr}${color2}${upspeedf eth0} KB/s Total : ${totalup}
+#${offset 5}${upspeedgraph eth0 40,285 4B1B0C FF5C2B 100 -l}
+${offset 5}${color1}${font Ostrich Sans:pixelsize=12}${color1}DOWN:${alignr}${color2}${downspeedf eth0} KB/s Total : ${totaldown}
+#${offset 5}${downspeedgraph eth0 40,285 324D23 77B753 100 -l}
+#${offset 5}${font Ostrich Sans:pixelsize=12}${color1}Local IP${color2}${alignr}${addr eth0}
+#${offset 5}${font Ostrich Sans:pixelsize=12}${color1}Public IP${color2}${alignr}${execi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
+
+${font Ostrich Sans:pixelsize=15,weight:bold}${color0}TEMPERATURES ${hr 2}
+${voffset 5}${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color1}CPU:${alignr}${exec sensors | grep Tctl | cut -c16-22}
+${offset 5}${font Ostrich Sans:pixelsize=12,weight:normal}${color1}GPU (amdpgu):${alignr}${exec sensors | grep edge | cut -c16-22}
+
+]]
