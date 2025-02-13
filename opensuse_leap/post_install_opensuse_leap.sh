@@ -1,12 +1,12 @@
 #!/bin/bash
-echo '>> Executing postInstall script for "OpenSUSE Leap 15.x"...' && sleep 2
-echo '>> Updating repositories...' && sleep 2
+echo ':: Executing postInstall script for "OpenSUSE Leap 15.x"...' && sleep 2
+echo ':: Updating repositories...' && sleep 2
 sudo zypper refresh
-echo ">> Removing unnecessary packages..." && sleep 2
+echo ":: Removing unnecessary packages..." && sleep 2
 sudo zypper -n remove fcitx* mutt parole pidgin pulseaudio quodlibet transmission-gtk 
-echo '>> Upgrading...' && sleep 2
+echo ':: Upgrading...' && sleep 2
 sudo zypper -n update
-echo '>> Install core software...' && sleep 2
+echo ':: Install core software...' && sleep 2
 sudo zypper -n install acpi aria2 argon2-devel asciidoc autobuild bison clang cmake curl \
 dbus-1-glib-devel dkms dwarves findutils flex gcc gcc13 gcc-c++ gdb git gtk3-devel \
 libayatana-indicator3-7 libbotan-devel libc++1 libcap-devel libdbusmenu-gtk3-4 libelf-devel \
@@ -21,12 +21,12 @@ libyubikey-devel lightdm-gobject-devel llvm make meson minizip-devel ncurses-dev
 opi pcsc-lite-devel python3-AnyQt qconf qrencode-devel readline-devel rofi sensors strace \
 sudo webkit2gtk3-devel webkit2gtk3-soup2-devel xorg-x11-devel
 
-echo '>> Install essential softwares...' && sleep 2
+echo ':: Install essential softwares...' && sleep 2
 sudo zypper -n install cmus dosfstools flatpak gedit iosevka-fonts lightdm lightdm-gtk-greeter \
 lightdm-gtk-greeter-settings npm-default nodejs-default openbox pcmanfm picom pipewire \
 pipewire-pulseaudio playerctl tint2 unrar unzip wireplumber zsh
 
-echo '>> Adding custom repositories...' && sleep 2
+echo ':: Adding custom repositories...' && sleep 2
 
 # GOOGLE CHROME
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub > linux_signing_key.pub
@@ -37,7 +37,7 @@ sudo zypper addrepo http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-C
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo zypper addrepo --refresh https://packages.microsoft.com/yumrepos/edge microsoft-edge
 
-echo '>> Install other softwares...' && sleep 2
+echo ':: Install other softwares...' && sleep 2
 sudo zypper -n install audacious audacity blender breeze5-icons cava cmus codium conky \
 cups deepin-terminal dosbox emacs evince feh ffmpeg filezilla fontawesome-fonts \
 galculator ghex gimp google-chrome-stable gparted gsmartcontrol hexchat hplip hwinfo i3-gaps \
@@ -49,29 +49,28 @@ wget https://download.teamviewer.com/download/linux/teamviewer-suse.x86_64.rpm
 sudo zypper -n install ./teamviewer-*.rpm
 sudo rm teamviewer-*.rpm
 
-echo ">> Installing flatpak and apps..." && sleep 2
+echo ":: Installing flatpak and apps..." && sleep 2
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install com.discordapp.Discord com.axosoft.GitKraken org.signal.Signal \
-com.spotify.Client com.github.IsmaelMartinez.teams_for_linux org.telegram.desktop \
-io.github.mimbrero.WhatsAppDesktop -y
+com.spotify.Client com.github.IsmaelMartinez.teams_for_linux org.telegram.desktop -y
 
-echo ">> Installing fonts..." && sleep 2
+echo ":: Installing fonts..." && sleep 2
 sudo cp fonts/* /usr/local/share/fonts && sudo fc-cache /usr/local/share/fonts
 
 # INSTALLING NEW THEMES
 
-echo '>> Install new themes...' && sleep 2
+echo ':: Install new themes...' && sleep 2
 sudo zypper -n install gtk2-engine-murrine libcanberra-gtk3-module ninja sassc
 sudo mkdir ~/temp
 
 # Kripton theme
 cd ~/temp
-git clone https://github.com/MerkeX/Kripton.git
+git clone --depth 1 https://github.com/MerkeX/Kripton.git
 sudo cp -r Kripton/ /usr/share/themes && sudo rm -rf Kripton
 
 # WhiteSur theme
 cd ~/temp
-git clone https://github.com/MerkeX/WhiteSur-gtk-theme
+git clone --depth 1 https://github.com/MerkeX/WhiteSur-gtk-theme
 cd WhiteSur-gtk-theme && sudo ./install.sh -t all -d /usr/share/themes && cd ..
 sudo rm -rf WhiteSur-gtk-theme/
 
@@ -87,7 +86,7 @@ rm -rf OBTheme-Collections
 
 # INSTALLING ICON THEMES
 
-echo ">> Installing icon packs..." && sleep 2
+echo ":: Installing icon packs..." && sleep 2
 
 # Tela icon
 git clone --depth 1 https://github.com/MerkeX/Tela-icon-theme.git
@@ -103,6 +102,6 @@ git clone --depth 1 https://github.com/vinceliuice/WhiteSur-icon-theme
 cd WhiteSur-icon-theme && sudo ./install.sh -t all -d /usr/share/icons && cd ..
 sudo rm -rf WhiteSur-icon-theme/
 
-echo ">> Finished installing icon packs..." && sleep 2
+echo ":: Finished installing icon packs..." && sleep 2
 sudo rm -rf ~/temp
-echo ">> Done. Now rebooting..." && sleep 5 && sudo reboot
+echo ":: Done. Now rebooting..." && sleep 5 && sudo reboot
