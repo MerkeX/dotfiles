@@ -29,34 +29,34 @@ pipewire-pulseaudio playerctl tint2 unrar unzip wireplumber zsh
 echo ':: Adding custom repositories...' && sleep 2
 
 # DISCORD
-sudo zypper addrepo https://download.opensuse.org/repositories/games:tools/openSUSE_Tumbleweed/games:tools.repo
+sudo zypper addrepo https://download.opensuse.org/repositories/games:tools/openSUSE_Tumbleweed/games:tools.repo 'OpenSUSE:Games'
 
 # FANTASQUE SANS FONT
 sudo zypper addrepo https://download.opensuse.org/repositories/home:rroden12/openSUSE_Tumbleweed/home:rroden12.repo
 
 # FIREFOX ESR
-sudo zypper addrepo https://download.opensuse.org/repositories/mozilla/openSUSE_Tumbleweed/mozilla.repo
+sudo zypper addrepo https://download.opensuse.org/repositories/mozilla/openSUSE_Tumbleweed/mozilla.repo 'Mozilla'
 
 # GOOGLE CHROME
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub > linux_signing_key.pub
 sudo rpm --import linux_signing_key.pub
-sudo zypper addrepo http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
+sudo zypper addrepo http://dl.google.com/linux/chrome/rpm/stable/x86_64 'Google Chrome'
 
 # GRUB CUSTOMIZER
 sudo zypper addrepo https://download.opensuse.org/repositories/home:ecsos/openSUSE_Tumbleweed/home:ecsos.repo
 
 # MICROSOFT EDGE
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo zypper addrepo --refresh https://packages.microsoft.com/yumrepos/edge microsoft-edge
+sudo zypper addrepo --refresh https://packages.microsoft.com/yumrepos/edge 'Microsoft Edge'
 
 # RUSTDESK
 sudo zypper addrepo https://download.opensuse.org/repositories/home:sunweaver:RustDesk/openSUSE_Tumbleweed/home:sunweaver:RustDesk.repo
 
 # SIGNAL DESKTOP 
-sudo zypper addrepo https://download.opensuse.org/repositories/network:im:signal/openSUSE_Tumbleweed/network:im:signal.repo
+sudo zypper addrepo https://download.opensuse.org/repositories/network:im:signal/openSUSE_Tumbleweed/network:im:signal.repo 'OpenSUSE:Network'
 
 # VSCODIUM
-printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=gitlab.com_paulcarroty_vscodium_repo\nbaseurl=https://download.vscodium.com/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg\nmetadata_expire=1h" | sudo tee -a /etc/zypp/repos.d/vscodium.repo
+printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=gitlab.com_paulcarroty_vscodium_repo\nbaseurl=https://download.vscodium.com/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg\nmetadata_expire=1h" | sudo tee -a /etc/zypp/repos.d/vscodium.repo 
 
 echo ':: Install other softwares...' && sleep 2
 sudo zypper -n install audacious audacity blender breeze5-icons cava cmus codium conky \
@@ -66,9 +66,6 @@ gsmartcontrol hexchat hplip hwinfo inkscape keepassxc kpat libreoffice links lut
 mangohud menulibre microsoft-edge-stable MozillaThunderbird ntp NetworkManager \
 NetworkManager-applet openshot-qt pavucontrol pavumeter plymouth polybar qbittorrent \
 rclone rustdesk signal-desktop steam stellarium terminator texlive texstudio tk vlc 
-wget https://download.teamviewer.com/download/linux/teamviewer-suse.x86_64.rpm
-sudo zypper -n install ./teamviewer-*.rpm
-sudo rm teamviewer-*.rpm
 
 echo ":: Installing flatpak and apps..." && sleep 2
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -106,7 +103,6 @@ cd ./plasma-themes && sudo cp -r * /usr/share/themes && cd ../
 cd ./Icons && sudo cp -r * /usr/share/icons && cd ../
 cd ./Aurorae && sudo cp -r * /usr/share/themes/Windows-Eleven-Aurorae && cd ../
 
-
 # WhiteSur theme
 cd ~/temp
 git clone --depth 1 https://github.com/MerkeX/WhiteSur-gtk-theme
@@ -143,4 +139,5 @@ sudo rm -rf WhiteSur-icon-theme/
 
 echo ":: Finished installing icon packs..." && sleep 2
 sudo rm -rf ~/temp
-echo ":: Done. " #Now rebooting..." && sleep 5 && sudo reboot
+echo ":: Done. " 
+#echo "::Now rebooting..." && sleep 5 && sudo reboot
