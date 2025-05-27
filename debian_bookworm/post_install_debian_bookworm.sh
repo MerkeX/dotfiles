@@ -1,8 +1,10 @@
 #!/bin/bash
 echo ':: Executing postInstall script for "Debian 12 (Bookworm)"...' && sleep 2
 echo ':: Adding i386 architecture and updating repositories...' && sleep 2
-sudo dpkg --add-architecture i386 && apt-get update
-echo '>> Install core software...' && sleep 2
+sudo dpkg --add-architecture i386
+echo ":: Adding 'contrib', 'non-free' and 'non-free-firmware' component(s) to sources.list..." && sleep 2
+sudo apt-add-repository --component contrib non-free non-free-firmware -y  && apt-get update
+echo ':: Install core software...' && sleep 2
 sudo apt-get install acpi apt-transport-https asciidoctor bison build-essential clang cmake \
 curl debhelper dkms dwarves findutils flex g++ gcc gdb gdebi git inxi libargon2-dev libbotan-2-dev  \
 libayatana-indicator7 libcap-dev libdbusmenu-gtk4 libelf-dev libgconf-2-4 libgcrypt20-dev \
@@ -24,9 +26,6 @@ goldendict ibus im-config mc minicom mlterm mlterm-tiny mozc-data mutt parole \
 quodlibet transmission-gtk xiterm+thai -y
 sudo apt-get autoremove -y
 
-echo ":: Adding 'contrib', 'non-free' and 'non-free-firmware' component(s) to sources.list..." && sleep 2
-sudo apt-add-repository --component contrib non-free non-free-firmware -y
-
 echo ':: Adding custom repositories...' && sleep 2
 
 # GOOGLE CHROME
@@ -41,8 +40,6 @@ https://download.opensuse.org/repositories/home:/strycore/Debian_12/ ./" | \
 sudo tee /etc/apt/sources.list.d/lutris.list > /dev/null
 wget -q -O- https://download.opensuse.org/repositories/home:/strycore/Debian_12/Release.key | \
 gpg --dearmor | sudo tee /etc/apt/keyrings/lutris.gpg > /dev/null
-sudo apt update
-sudo apt install lutris
 
 # MICROSOFT EDGE
 curl https://packages.microsoft.com/keys/microsoft.asc | \
@@ -64,12 +61,6 @@ sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 echo "deb http://repository.spotify.com stable non-free" | \
 sudo tee /etc/apt/sources.list.d/spotify.list
 
-# SKYPEFORLINUX
-curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add -
-dpkg -s apt-transport-https > /dev/null || bash -c sudo apt-get update; \
-echo "#deb [arch=amd64] https://repo.skype.com/deb stable main" | \
-sudo tee /etc/apt/sources.list.d/skypeforlinux.list
-
 # SIGNAL DESKTOP
 wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
 cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
@@ -87,6 +78,9 @@ wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.g
     | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
 echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
     | sudo tee /etc/apt/sources.list.d/vscodium.list
+
+echo ':: Updating repos...' && sleep 2
+sudo apt update
 
 echo ':: Install other softwares...' && sleep 2
 sudo apt-get install android-tools-adb arduino arduino-core audacious audacity blender \
