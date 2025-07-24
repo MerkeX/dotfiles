@@ -16,7 +16,7 @@ libQt5Core-devel libQt5DBus-devel libQt5Gui-devel libQt5Network-devel ibqt5-ling
 libqt5-qtbase-dev libqt5-qtbase-private-headers-devel libqt5-qtbase-devel \
 libqt5-qtdeclarative-devel libqt5-qtsvg-devel libqt5-qttools-dev libqt5-qttools \
 libusb-1_0-devel libva-drm2 libva-x11-2 libqt5-qtx11extras-devel libstdc++6-devel-gcc13 \
-libusb-1_0-devel \libXi-devel libXss1 libXss-devel libykpers-devel libXtst-devel \
+libusb-1_0-devel libXi-devel libXss1 libXss-devel libykpers-devel libXtst-devel \
 libyubikey-devel lightdm-gobject-devel llvm make meson minizip-devel ncurses-devel fastfetch \
 opi pcsc-lite-devel python3-AnyQt qconf qrencode-devel readline-devel rofi sensors strace \
 sudo webkit2gtk3-devel webkit2gtk3-soup2-devel xorg-x11-devel
@@ -24,7 +24,7 @@ sudo webkit2gtk3-devel webkit2gtk3-soup2-devel xorg-x11-devel
 echo ':: Install essential softwares...' && sleep 2
 sudo zypper -n install cmus dosfstools flatpak gedit iosevka-fonts lightdm lightdm-gtk-greeter \
 lightdm-gtk-greeter-settings npm-default nodejs-default openbox pcmanfm picom pipewire \
-pipewire-pulseaudio playerctl tint2 unrar unzip wireplumber zsh
+pipewire-audio playerctl sddm tint2 unrar unzip wireplumber zsh
 
 echo ':: Adding custom repositories...' && sleep 2
 
@@ -65,7 +65,6 @@ curl -1sLf -o /etc/yum.repos.d/teams-for-linux.repo https://repo.teamsforlinux.d
 
 # VERACRYPT
 sudo zypper addrepo https://download.opensuse.org/repositories/home:ecsos/15.6/home:ecsos.repo
-
 
 # VSCODIUM
 sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
@@ -138,4 +137,4 @@ sudo rm -rf WhiteSur-icon-theme/
 
 echo ":: Finished installing icon packs..." && sleep 2
 sudo rm -rf ~/temp
-echo ":: Done. Now rebooting..." && sleep 5 && sudo reboot
+echo ":: Done. " # Now rebooting..." && sleep 5 && sudo reboot
