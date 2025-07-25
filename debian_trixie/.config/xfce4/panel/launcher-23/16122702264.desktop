@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Discord
+GenericName=Internet Messenger
+Comment=All-in-one voice and text chat for gamers that&apos;s free, secure, and works on both your desktop and phone.
+Icon=com.discordapp.Discord
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/discord_discord.desktop /snap/bin/discord
+Actions=
+Categories=InstantMessaging;Network;
+StartupWMClass=discord
+X-XFCE-Source=file:///home/devid/.local/share/applications/snapd/discord_discord.desktop
