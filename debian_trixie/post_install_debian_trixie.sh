@@ -1,5 +1,5 @@
 #!/bin/bash
-echo ':: Executing postInstall script for "Debian 12 (Bookworm)"...' && sleep 2
+echo ':: Executing postInstall script for "Debian 13 (Trixie)"...' && sleep 2
 echo ":: Commenting 'deb-src' repositories..." && sleep 2
 sudo sed -i 's/deb-src/#deb-src/g' /etc/apt/sources.list
 echo ':: Adding i386 architecture and updating repositories...' && sleep 2
@@ -16,8 +16,8 @@ rofi strace sudo zlib1g-dev -y
 
 echo ':: Install essential softwares...' && sleep 2
 sudo apt-get install aria2 btop cmus dhcpcd5 dosfstools fonts-fantasque-sans gedit gmtp \
-htop npm nodejs openbox pcmanfm picom pipewire-bin pipewire playerctl thunar tint2 \
-ttf-mscorefonts-installer unrar unzip wireplumber xarchiver task-lxqt-desktop zsh -y
+htop npm nodejs openbox pcmanfm picom pipewire-bin pipewire playerctl task-lxqt-desktop \
+thunar tint2 ttf-mscorefonts-installer unrar unzip wireplumber xarchiver zsh -y
 
 echo ":: Removing unnecessary packages..." && sleep 2
 sudo apt-get remove --purge bluetooth bluez bluez-cups bluez-obexd exfalso fcitx* \
@@ -26,7 +26,7 @@ quodlibet transmission-gtk xiterm+thai xterm -y
 sudo apt-get autoremove -y
 
 echo ":: Adding 'contrib', 'non-free' and 'non-free-firmware' component(s) to sources.list..." && sleep 2
-sudo apt-add-repository --component contrib non-free non-free-firmware -y
+sed -i 's/main/main contrib non-free/' /etc/apt/sources.list
 
 echo ':: Adding custom repositories...' && sleep 2
 
@@ -53,13 +53,12 @@ sudo rm microsoft.gpg
 
 # ONLY OFFICE
 mkdir -p -m 700 ~/.gnupg
-gpg --no-default-keyring --keyring gnupg-ring:/tmp/onlyoffice.gpg --keyserver \
-hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
+curl -fsSL https://download.onlyoffice.com/GPG-KEY-ONLYOFFICE | \
+gpg --no-default-keyring --keyring gnupg-ring:/tmp/onlyoffice.gpg --import
 chmod 644 /tmp/onlyoffice.gpg
 sudo chown root:root /tmp/onlyoffice.gpg
 sudo mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
-echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] \
-https://download.onlyoffice.com/repo/debian squeeze main' | \
+echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | \
 sudo tee -a /etc/apt/sources.list.d/onlyoffice.list
 
 # TEAMS FOR LINUX 
@@ -86,6 +85,9 @@ wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.g
     | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
 echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
     | sudo tee /etc/apt/sources.list.d/vscodium.list
+
+echo ':: Updating repo(s)...' && sleep 2
+sudo apt update
 
 echo ':: Install other softwares...' && sleep 2
 sudo apt-get install adb arduino audacious audacity blender breeze-icon-theme cava cmatrix cmus \
@@ -123,8 +125,8 @@ sudo source /etc/environment
 
 # INSTALLING NEW THEMES
 echo ':: Install new themes...' && sleep 2
-sudo apt-get install gtk2-engines-murrine gtk2-engines-pixbuf libcanberra-gtk-module \
-libglib2.0-dev ninja-build sassc -y
+sudo apt-get install gtk2-engines-murrine gnome-themes-extra gtk2-engines-pixbuf \
+libcanberra-gtk-module libglib2.0-dev ninja-build sassc -y
 mkdir ~/temp
 
 # Kripton theme
@@ -137,6 +139,20 @@ cd ~/temp
 git clone --depth 1 https://github.com/MerkeX/WhiteSur-gtk-theme
 cd WhiteSur-gtk-theme && sudo ./install.sh -t all -d /usr/share/themes && cd ..
 sudo rm -rf WhiteSur-gtk-theme/
+
+
+# Win11 - GTK
+cd ~/temp
+git clone --depth 1 https://github.com/MerkeX/Win11-gtk-theme.git
+cd Win11-gtk-theme && sudo ./install.sh && cd ..
+sudo rm -rf Win11-gtk-theme
+
+# Win11 - KDE
+cd ~/temp
+git clone --depth 1 https://github.com/MerkeX/Win11OS-kde.git
+cd Win11OS-kde && sudo ./install.sh && cd ..
+sudo rm -rf Win11OS-kde
+
 
 # INSTALL SOME THEMES FOR OPENBOX
 
@@ -174,6 +190,13 @@ sudo ninja -C "build" install && cd .. && rm -rf paper-icon-theme/
 git clone --depth 1 https://github.com/vinceliuice/WhiteSur-icon-theme
 cd WhiteSur-icon-theme && sudo ./install.sh -t all -d /usr/share/icons && cd ..
 sudo rm -rf WhiteSur-icon-theme/
+
+# Win11 theme
+git clone --depth 1 https://github.com/MerkeX/Win11-icon-theme.git
+cd Win11-icon-theme && sudo ./install.sh -t all && cd ..
+sudo rm -rf Win11-icon-theme
+
+
 
 echo ":: Finished installing icon packs..." && sleep 2
 sudo rm -rf ~/temp
